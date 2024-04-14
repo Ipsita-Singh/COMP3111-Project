@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class T21Analysis {
     public ObservableList<QSItem> University1List = FXCollections.observableArrayList();
@@ -12,7 +13,19 @@ public class T21Analysis {
     private String University1Name;
     private String University2Name;
 
+    static List <String> SortUniversity (List <String> years1) {
+        //combine the two strings
+        List <String> combined = new ArrayList<>(years1);
+        Collections.sort (combined);
+        return combined;
+        //return a sorted string
+    }
     T21Analysis(String uni_1, String uni_2, List<String> years) {
+        List <QSItem> university1 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(uni_1) && years.contains(qsItem.year)).collect(Collectors.toList());
+        List <QSItem> university2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(uni_2) && years.contains(qsItem.year)).collect(Collectors.toList());
+
+        university1.sort(Comparator.comparing (QSItem::getYear));
+        university2.sort(Comparator.comparing (QSItem::getYear));
         /*
             Your Code Here.
             Collect the QSItem with corresponding years and university into two university lists.
@@ -23,6 +36,15 @@ public class T21Analysis {
 
     XYChart.Series<Double, String> getBarChartData(String searchName) {
         XYChart.Series<Double, String> barData= new XYChart.Series<>();
+
+
+        // Adding rank data for University 1
+        //barData.getData().add(new XYChart.Data<>(1.0, "University 1"));
+
+
+        // Adding rank data for University 2
+        //barData.getData().add(new XYChart.Data<>(2.0, "University 2"));
+
         /*
             Your Code Here.
             Return the Bar Chart Data.
