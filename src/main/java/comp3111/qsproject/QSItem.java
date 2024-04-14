@@ -43,6 +43,9 @@ public class QSItem {
 
     public String getName() { return name; }
 
+    public String getYear (){ return year; }
+
+    public String getRegion (){ return region; }
     public String getScore() { return score; }
 
     public String getCountry() { return country; }
@@ -65,10 +68,22 @@ public class QSItem {
 
     String getProperty(String property) {
         String propertyValue = new String();
-        /*
-            return the property value.
-            use JAVA reflection.
-         */
+
+        try {
+            Field field = getClass().getDeclaredField(property);
+            field.setAccessible(true);
+            Object value = field.get(this);
+            if (value != null){
+                propertyValue = value.toString();
+            }
+            else{
+                propertyValue = null;
+            }
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+
         return propertyValue;
     }
 }
