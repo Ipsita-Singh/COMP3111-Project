@@ -13,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Font;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Controller {
@@ -183,8 +185,10 @@ public class Controller {
             3. For choice boxes of country/region,
                 you need to add a blank or "All" option representing selection of all the country/region.
          */
-        t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
-        //t2University1ChoiceBox.setItems(QSList.university);
+        //t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
+        ObservableList<String> sortedUniversity = QSList.university;
+        Collections.sort(sortedUniversity, Comparator.naturalOrder());
+        t2University1ChoiceBox.setItems(sortedUniversity);
         t2University2ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
 
         t2CountryRegion1ChoiceBox.setItems(FXCollections.observableArrayList("India", "Asia"));

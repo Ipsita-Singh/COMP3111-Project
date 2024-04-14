@@ -25,10 +25,10 @@ public class QSList {
 
     public static void initialize() {
         try {
-            // Step 1: Load the CSV into a list
-            list = loadCSVToList("qs.csv");
 
-            // Step 2: Collect the set of university, type, region, and country
+            list = CSVToList("qs.csv");
+
+
             collectUniversityTypeRegionCountry();
 
 
@@ -42,16 +42,14 @@ public class QSList {
          */
     }
 
-    private static ObservableList<QSItem> loadCSVToList(String filePath) throws IOException {
+    private static ObservableList<QSItem> CSVToList(String filePath) throws IOException {
         ObservableList<QSItem> dataList = FXCollections.observableArrayList();;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             br.readLine(); // Skip the header line
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                String[] data = line.split(","); //problem in parsing as there is comma in number as well
-                //System.out.println(data[13]);
+                String[] data = line.split(",");
                 String [] parsed = new String[15];;
                 int j = 0;
                 for (int i = 0; i < data.length; i++){
@@ -64,7 +62,6 @@ public class QSList {
                     }
                 }
                 parsed [0] = parsed [0].replace ("\"", "").trim();
-                System.out.println(parsed[14]);
                 QSItem item = new QSItem(parsed);
                 dataList.add(item);
             }
