@@ -5,6 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
@@ -66,6 +67,14 @@ public class Controller {
     public ChoiceBox<String> t2University1ChoiceBox;
     @FXML
     public ChoiceBox<String> t2University2ChoiceBox;
+
+    @FXML
+    public Label error1;
+
+
+    @FXML
+    public ComboBox<String> FieldSelect;
+
     @FXML
     public ChoiceBox<String> t2CountryRegion1ChoiceBox;
     @FXML
@@ -174,6 +183,18 @@ public class Controller {
             3. For choice boxes of country/region,
                 you need to add a blank or "All" option representing selection of all the country/region.
          */
+        t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
+        //t2University1ChoiceBox.setItems(QSList.university);
+        t2University2ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
+
+        t2CountryRegion1ChoiceBox.setItems(FXCollections.observableArrayList("India", "Asia"));
+        t2CountryRegion1ChoiceBox.getItems().add("All");
+
+        t2CountryRegion2ChoiceBox.setItems(FXCollections.observableArrayList("India", "Asia"));
+        t2CountryRegion2ChoiceBox.getItems().add("All");
+
+        //xAxis.setText ("Avg. Rank");
+        FieldSelect.setItems(FXCollections.observableArrayList("Rank", "Score", "Faculty Count", "International Student", "Student Faculty Ratio"));
         // T3
         /*
             Your Code Here.
@@ -213,10 +234,100 @@ public class Controller {
             Your Code Here.
             Reset the Page Task 2.1. (including the choice boxes, check boxes and charts)
          */
+        t2University1ChoiceBox.setValue(null);
+        t2University2ChoiceBox.setValue(null);
+        FieldSelect.setValue(null);
+
+        t22017CheckBox.setSelected(false);
+        t22018CheckBox.setSelected(false);
+        t22019CheckBox.setSelected(false);
+        t22020CheckBox.setSelected(false);
+        t22021CheckBox.setSelected(false);
+        t22022CheckBox.setSelected(false);
+
+        error1.setText("");
+        //xAxis.setText("Avg. Rank");
+
+
+        t21RankBarChart.getData().clear();
+        t21InternationalBarChart.getData().clear();
+        t21FacultyBarChart.getData().clear();
+        t21ScoreBarChart.getData().clear();
+        t21SFRBarChart.getData().clear();
+        t21LineChart.getData().clear();
+
     }
 
     @FXML
     private void T21_onClickCompare() {
+        error1.setText("");
+
+
+        String university1 = t2University1ChoiceBox.getValue();
+        String university2 = t2University2ChoiceBox.getValue();
+
+        System.out.println("University 1: " + university1);
+        System.out.println("University 2: " + university2);
+        boolean yearCondition = false;
+        List <String> SelectedYears = new ArrayList<>();
+        if (t22017CheckBox.isSelected()){
+            SelectedYears.add("2017");
+            yearCondition = true;
+        }
+        if (t22018CheckBox.isSelected()){
+            SelectedYears.add("2018");
+            yearCondition = true;
+        }
+        if (t22019CheckBox.isSelected()){
+            SelectedYears.add("2019");
+            yearCondition = true;
+        }
+        if (t22020CheckBox.isSelected()){
+            SelectedYears.add("2020");
+            yearCondition = true;
+        }
+        if (t22021CheckBox.isSelected()){
+            SelectedYears.add("2021");
+            yearCondition = true;
+        }
+        if (t22022CheckBox.isSelected()){
+            SelectedYears.add("2022");
+            yearCondition = true;
+        }
+
+        System.out.println("Selected Years:");
+        for (String year : SelectedYears) {
+            System.out.println(year);
+        }
+
+        if (university1 == null && university2 == null && yearCondition == false){
+            error1.setText("Please Select University 1, University 2 and Year");
+        }
+        else if (university2 == null && university1 == null){
+            error1.setText("Please Select University 1 and University 2");
+        }
+        else if (university2 == null && yearCondition == false){
+            error1.setText("Please Select University2 and Year");
+        }
+        else if (university1 == null && yearCondition == false){
+            error1.setText("Please Select University 1 and Year");
+        }
+        else if (university1 == null){
+            error1.setText ("Please Select University 1");
+        }
+        else if (university2 == null){
+            error1.setText("Please Select University 2");
+        }
+        else if (yearCondition == false){
+            error1.setText ("Please Select Year");
+        }
+
+        //Analyzer
+        /*
+        if (university1 != null && university2 != null && yearCondition == true){
+            T21Analysis analyzer = new T21Analysis (university1, university2, SelectedYears);
+        }
+        */
         /*
             Your Code Here.
             When click search on Task2.1:
@@ -229,6 +340,8 @@ public class Controller {
          */
     }
 
+
+
     @FXML
     private void T22_onClickClear() {
         /*
@@ -239,6 +352,7 @@ public class Controller {
 
     @FXML
     private void T22_onClickCompare() {
+
         /*
             Your Code Here.
             When click search on Task2.2:
