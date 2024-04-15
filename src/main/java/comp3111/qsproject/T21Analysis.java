@@ -14,11 +14,9 @@ public class T21Analysis {
     private String University2Name;
 
     static List <String> SortUniversity (List <String> years1) {
-        //combine the two strings
         List <String> combined = new ArrayList<>(years1);
         Collections.sort (combined);
-        return combined;
-        //return a sorted string
+        return combined; //return a sorted string
     }
 
     T21Analysis(String uni_1, String uni_2, List<String> years) {
@@ -51,7 +49,8 @@ public class T21Analysis {
             String scoreString = "";
             if (searchName.equals("Score")) {
                 scoreString = qsItem.getScore();
-            } else if (searchName.equals("Rank")) {
+            }
+            else if (searchName.equals("Rank")) {
                 scoreString = qsItem.getRank();
             }
             else if (searchName.equals("International Students")){
@@ -63,7 +62,9 @@ public class T21Analysis {
             else if (searchName.equals("Faculty Count")){
                 scoreString = qsItem.getFacultyCount();
             }
-
+            if (scoreString == null){
+                continue;
+            }
 
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
@@ -72,8 +73,6 @@ public class T21Analysis {
                 scoreString = scoreString.replaceAll("\\.", "");
             }
 
-
-
             double summation;
             try {
                 summation = Double.parseDouble(scoreString);
@@ -81,26 +80,22 @@ public class T21Analysis {
             } catch (NumberFormatException e) {
                 summation = 0.0;
             }
-            //System.out.println(searchName + summation);
+
             sum += summation;
-            if (searchName.equals("Score")){
-                System.out.println("Score:" + summation);
-            }
+
             length++;
         }
+        if (length == 0.0){
+            return sum;
+        }
 
-
-        return sum/length;
+        return sum / length;
     }
 
     XYChart.Series<Double, String> getBarChartData(String searchName) {
         XYChart.Series<Double, String> barData= new XYChart.Series<>();
         double displayAverage1 = calculate (University1List, searchName);
         double displayAverage2 = calculate (University2List, searchName);
-        if (searchName.equals("Score")){
-            System.out.println("final1" + displayAverage1);
-            System.out.println("final2" + displayAverage2);
-        }
 
 
         barData.getData().add(new XYChart.Data<>(displayAverage1, University1Name));
@@ -135,6 +130,10 @@ public class T21Analysis {
             String year = qsItem.getYear();
             String scoreString = qsItem.getScore();
 
+            if (scoreString == null){
+                continue;
+            }
+
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
 
@@ -146,8 +145,6 @@ public class T21Analysis {
             try {
                 score = Double.parseDouble(scoreString);
             } catch (NumberFormatException e) {
-                // Handle invalid score values
-                // For example, you can assign a default value or skip the data point
                 score = 0.0; // Default value for invalid scores
             }
 
@@ -158,6 +155,9 @@ public class T21Analysis {
             String year = qsItem2.getYear();
             String scoreString = qsItem2.getScore();
 
+            if (scoreString == null){
+                continue;
+            }
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
 
@@ -169,8 +169,6 @@ public class T21Analysis {
             try {
                 score = Double.parseDouble(scoreString);
             } catch (NumberFormatException e) {
-                // Handle invalid score values
-                // For example, you can assign a default value or skip the data point
                 score = 0.0; // Default value for invalid scores
             }
 
