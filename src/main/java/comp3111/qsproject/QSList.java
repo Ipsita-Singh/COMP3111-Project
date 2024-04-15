@@ -1,16 +1,14 @@
 package comp3111.qsproject;
 
-import com.csvreader.CsvReader;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This file is a container of collected QS data
@@ -25,12 +23,8 @@ public class QSList {
 
     public static void initialize() {
         try {
-
             list = CSVToList("qs.csv");
-
-
-            collectUniversityTypeRegionCountry();
-
+            collectData();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,6 +56,7 @@ public class QSList {
                     }
                 }
                 parsed [0] = parsed [0].replace ("\"", "").trim();
+                parsed [5] = parsed[5].replace("\"","");
                 QSItem item = new QSItem(parsed);
                 dataList.add(item);
             }
@@ -70,7 +65,7 @@ public class QSList {
         return dataList;
     }
 
-    private static void collectUniversityTypeRegionCountry() {
+    private static void collectData() {
 
 
         for (QSItem item : list) {
@@ -80,6 +75,20 @@ public class QSList {
             country.add(item.getCountry());
         }
 
+        Set<String> uniqueUniversities = new HashSet<>(university);
+        Set<String> uniqueTypes = new HashSet<>(type);
+        Set<String> uniqueRegions = new HashSet<>(region);
+        Set<String> uniqueCountries = new HashSet<>(country);
+
+        university.clear();
+        type.clear();
+        region.clear();
+        country.clear();
+
+        university.addAll(uniqueUniversities);
+        type.addAll(uniqueTypes);
+        region.addAll(uniqueRegions);
+        country.addAll(uniqueCountries);
 
 
     }
