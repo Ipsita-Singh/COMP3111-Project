@@ -285,52 +285,48 @@ public class Controller {
 
         boolean yearCondition = false;
         List <String> SelectedYears = new ArrayList<>();
-        if (t22017CheckBox.isSelected()){
-            SelectedYears.add("2017");
-            yearCondition = true;
-        }
-        if (t22018CheckBox.isSelected()){
-            SelectedYears.add("2018");
-            yearCondition = true;
-        }
-        if (t22019CheckBox.isSelected()){
-            SelectedYears.add("2019");
-            yearCondition = true;
-        }
-        if (t22020CheckBox.isSelected()){
-            SelectedYears.add("2020");
-            yearCondition = true;
-        }
-        if (t22021CheckBox.isSelected()){
-            SelectedYears.add("2021");
-            yearCondition = true;
-        }
-        if (t22022CheckBox.isSelected()){
-            SelectedYears.add("2022");
-            yearCondition = true;
+        CheckBox[] checkboxes = {
+                t22017CheckBox,
+                t22018CheckBox,
+                t22019CheckBox,
+                t22020CheckBox,
+                t22021CheckBox,
+                t22022CheckBox
+        };
+
+        for (CheckBox checkbox : checkboxes) {
+            if (checkbox.isSelected()) {
+                String year = checkbox.getText();
+                SelectedYears.add(year);
+                yearCondition = true;
+            }
         }
 
-
-        if (university1 == null && university2 == null && yearCondition == false){
-            error1.setText("Please Select University 1, University 2 and Year");
+        if (university1 == null) {
+            if (university2 == null) {
+                if (yearCondition == false) {
+                    error1.setText("Please Select University 1, University 2, and Year");
+                }
+                else {
+                    error1.setText("Please Select University 1 and University 2");
+                }
+            }
+            else if (yearCondition == false) {
+                error1.setText("Please Select University 1 and Year");
+            }
+            else {
+                error1.setText("Please Select University 1");
+            }
         }
-        else if (university2 == null && university1 == null){
-            error1.setText("Please Select University 1 and University 2");
+        else if (university2 == null) {
+            if (yearCondition == false) {
+                error1.setText("Please Select University 2 and Year");
+            } else {
+                error1.setText("Please Select University 2");
+            }
         }
-        else if (university2 == null && yearCondition == false){
-            error1.setText("Please Select University2 and Year");
-        }
-        else if (university1 == null && yearCondition == false){
-            error1.setText("Please Select University 1 and Year");
-        }
-        else if (university1 == null){
-            error1.setText ("Please Select University 1");
-        }
-        else if (university2 == null){
-            error1.setText("Please Select University 2");
-        }
-        else if (yearCondition == false){
-            error1.setText ("Please Select Year");
+        else if (yearCondition == false) {
+            error1.setText("Please Select Year");
         }
         else{
             t21RankBarChart.getData().clear();
@@ -419,51 +415,52 @@ public class Controller {
 
         boolean yearCondition_22 = false;
         List <String> SelectedYears22 = new ArrayList<>();
-        if (t22017CheckBox2.isSelected()){
-            SelectedYears22.add("2017");
-            yearCondition_22 = true;
-        }
-        if (t22018CheckBox2.isSelected()){
-            SelectedYears22.add("2018");
-            yearCondition_22 = true;
-        }
-        if (t22019CheckBox2.isSelected()){
-            SelectedYears22.add("2019");
-            yearCondition_22 = true;
-        }
-        if (t22020CheckBox2.isSelected()){
-            SelectedYears22.add("2020");
-            yearCondition_22 = true;
-        }
-        if (t22021CheckBox2.isSelected()){
-            SelectedYears22.add("2021");
-            yearCondition_22 = true;
-        }
-        if (t22022CheckBox2.isSelected()){
-            SelectedYears22.add("2022");
-            yearCondition_22 = true;
+
+        CheckBox[] checkboxes = {
+                t22017CheckBox2,
+                t22018CheckBox2,
+                t22019CheckBox2,
+                t22020CheckBox2,
+                t22021CheckBox2,
+                t22022CheckBox2
+        };
+
+        for (CheckBox checkbox : checkboxes) {
+            if (checkbox.isSelected()) {
+                String year = checkbox.getText();
+                SelectedYears22.add(year);
+                yearCondition_22 = true;
+            }
         }
 
-        if (countryregion1 == null && countryregion2 == null && yearCondition_22 == false){
-            error2.setText("Please Select Country/Region 1, Country/Region 2 and Year");
+        if (countryregion1 == null) {
+            if (countryregion2 == null) {
+                if (yearCondition_22 == false) {
+                    error2.setText("Please Select Country/Region 1, Country/Region 2, and Year");
+                }
+                else {
+                    error2.setText("Please Select Country/Region 1 and Country/Region 2");
+                }
+            }
+            else {
+                if (yearCondition_22 == false) {
+                    error2.setText("Please Select Country/Region 1 and Year");
+                }
+                else {
+                    error2.setText("Please Select Country/Region 1");
+                }
+            }
         }
-        else if (countryregion1 == null && countryregion2 == null){
-            error2.setText("Please Select Country/Region 1 and Country/Region 2");
+        else if (countryregion2 == null) {
+            if (yearCondition_22 == false) {
+                error2.setText("Please Select Country/Region 2 and Year");
+            }
+            else {
+                error2.setText("Please Select Country/Region 2");
+            }
         }
-        else if (countryregion2 == null && yearCondition_22 == false){
-            error2.setText("Please Select Country/Region 2 and Year");
-        }
-        else if (countryregion1 == null && yearCondition_22 == false){
-            error2.setText("Please Select Country/Region 1 and Year");
-        }
-        else if (countryregion1 == null){
-            error2.setText ("Please Select Country/Region 1");
-        }
-        else if (countryregion2 == null){
-            error2.setText("Please Select Country/Region 2");
-        }
-        else if (yearCondition_22 == false){
-            error2.setText ("Please Select Year");
+        else if (yearCondition_22 == false) {
+            error2.setText("Please Select Year");
         }
         else{
             t22RankBarChart.getData().clear();

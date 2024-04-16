@@ -23,11 +23,11 @@ public class T22Analysis {
 
 
         if (country_region_1.equals ("All")){
-            country1 = QSList.list;
+            country1 = QSList.list.stream().filter (qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
         }
 
         if (country_region_2.equals("All")){
-            country2 = QSList.list;
+            country2 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
         }
 
         country1.sort(Comparator.comparing (QSItem::getYear));
@@ -38,20 +38,13 @@ public class T22Analysis {
         CountryRegion1Name = country_region_1;
         CountryRegion2Name = country_region_2;
 
-
-        /*
-            Your Code Here.
-            Collect the QSItem with corresponding years and country/region into two country/region lists.
-            Sort country/region lists by the years.
-            Hint: QSList.list is a static property.
-         */
     }
 
     public double calculate (ObservableList<QSItem> CountryList , String searchName){
         double sum = 0.0;
         double length = 0.0;
 
-        System.out.println(searchName);
+
         for (QSItem qsItem: CountryList) {
             String scoreString = "";
             if (searchName.equals("Score")) {
@@ -75,10 +68,8 @@ public class T22Analysis {
             }
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
+            scoreString = scoreString.replaceAll("\\.", "");
 
-            if (!searchName.equals("Score")){
-                scoreString = scoreString.replaceAll("\\.", "");
-            }
 
             double summation;
             try {
@@ -100,28 +91,12 @@ public class T22Analysis {
     }
     XYChart.Series<Double, String> getBarChartData(String searchName) {
         XYChart.Series<Double, String> barData= new XYChart.Series<>();
-        System.out.println(searchName);
         double countryAverage1 = calculate (CountryRegion1List, searchName);
         double countryAverage2 = calculate (CountryRegion2List, searchName);
 
-
         barData.getData().add(new XYChart.Data<>(countryAverage1, CountryRegion1Name));
         barData.getData().add(new XYChart.Data<>(countryAverage2, CountryRegion2Name));
-        /*
-            Your Code Here.
-            Return the Bar Chart Data.
-            Bar Chart shows the Avg. of the selected property.
-            For example, when the user chooses "score", which means the searchName will be "score"
-            And Return an XYChart.Series with XYChart.Data
-            [
-              Average score of country/region2, "Country/Region 2"
-              Average score of country/region1, "Country/Region 1"
-            ]
 
-            There are some "dirty data" in csv.
-            For example, the string "3,143" or "3.143" can not transfer to Integer or Double directly.
-            Careful process these data.
-         */
         return barData;
     }
 
@@ -132,75 +107,50 @@ public class T22Analysis {
         series1.setName(CountryRegion1Name);
         series2.setName(CountryRegion2Name);
 
-        for (QSItem qsItem: CountryRegion1List) {
-            String year = qsItem.getYear();
-            String scoreString = qsItem.getScore();
+        List <String> yearsSelected = new ArrayList<>();
 
-            if (scoreString == null){
-                continue;
-            }
-
-            scoreString = scoreString.replaceAll(",", "");
-            scoreString = scoreString.replaceAll("\"", "");
-
-            if (!searchName.equals("Score")){
-                scoreString = scoreString.replaceAll("\\.", "");
-            }
-
-
-            double score;
-            try {
-                score = Double.parseDouble(scoreString);
-            } catch (NumberFormatException e) {
-                score = 0.0; // Default value for invalid scores
-            }
-
-            series1.getData().add(new XYChart.Data<>(year, score));
+        for (QSItem qsItem: CountryRegion1List){
+            yearsSelected.add(qsItem.getYear());
         }
 
-        for (QSItem qsItem2: CountryRegion2List) {
-            String year = qsItem2.getYear();
-            String scoreString = qsItem2.getScore();
+        Set<String> uniqueYears = new HashSet<>(yearsSelected);
+        yearsSelected.clear();
+        yearsSelected.addAll(uniqueYears);
+        Collections.sort(yearsSelected);
 
-            if (scoreString == null){
-                continue;
-            }
+        ObservableList<QSItem> country1Values = FXCollections.observableArrayList();
+        for (String year: yearsSelected){
+            List <QSItem> filtered = CountryRegion1List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
+            country1Values.clear();
+            country1Values.addAll(filtered);
+            double countryAverage1 = calculate (country1Values,"Score");
+            series1.getData().add(new XYChart.Data<>(year, countryAverage1));
+        }
 
-            scoreString = scoreString.replaceAll(",", "");
-            scoreString = scoreString.replaceAll("\"", "");
+        List <String> yearsSelected2 = new ArrayList<>();
 
-            if (!searchName.equals("Score")){
-                scoreString = scoreString.replaceAll("\\.", "");
-            }
+        for (QSItem qsItem: CountryRegion2List){
+            yearsSelected2.add(qsItem.getYear());
+        }
 
-            double score;
-            try {
-                score = Double.parseDouble(scoreString);
-            } catch (NumberFormatException e) {
-                score = 0.0; // Default value for invalid scores
-            }
+        Set<String> uniqueYears2 = new HashSet<>(yearsSelected2);
+        yearsSelected2.clear();
+        yearsSelected2.addAll(uniqueYears2);
+        Collections.sort(yearsSelected2);
 
-            series2.getData().add(new XYChart.Data<>(year, score));
+        ObservableList<QSItem> country2Values = FXCollections.observableArrayList();
+        for (String year: yearsSelected2){
+            List <QSItem> filtered = CountryRegion2List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
+            country2Values.clear();
+            country2Values.addAll(filtered);
+            double countryAverage2 = calculate (country2Values,"Score");
+
+            series2.getData().add(new XYChart.Data<>(year, countryAverage2));
         }
 
         lineData.add(series1);
         lineData.add(series2);
 
         return lineData;
-        /*
-            Your Code Here.
-            Fill the lineData1 and lineData2.
-            Line Chart shows two lines. Each line shows the number of searchName each year.
-            In our cases, the searchName will be "score"
-            And Return an XYChart.Series with XYChart.Data
-            [
-              Series[Data<year,score>],
-            ]
-
-            There are some "dirty data" in csv.
-            For example, the string "3,143" or "3.143" can not transfer to Integer or Double directly.
-            Careful process these data.
-         */
-
     }
 }
