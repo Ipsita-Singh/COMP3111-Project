@@ -21,20 +21,20 @@ public class QSItem {
     public String size;
     public String facultyCount;
     QSItem(String[] string_line) {
-        assert(string_line.length == 15);
+        assert(string_line.length == 13);
         name = string_line[0];
         year = string_line[1];
         rank = string_line[2];
         score = string_line[3];
-        country = string_line[5];
-        city = string_line[6];
-        region = string_line[7];
-        type = string_line[9];
-        researchOutput = string_line[10];
-        studentFacultyRatio = string_line[11];
-        internationalStudents = string_line[12];
-        size = string_line[13];
-        facultyCount = string_line[14];
+        country = string_line[4];
+        city = string_line[5];
+        region = string_line[6];
+        type = string_line[7];
+        researchOutput = string_line[8];
+        studentFacultyRatio = string_line[9];
+        internationalStudents = string_line[10];
+        size = string_line[11];
+        facultyCount = string_line[12];
     }
 
     public String getRank() {
