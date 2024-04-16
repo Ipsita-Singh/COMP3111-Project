@@ -12,6 +12,15 @@ public class T21Analysis {
     private String University1Name;
     private String University2Name;
 
+    static List <String> SortUniversity (List <String> years1){
+        if (years1.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<String> combined = new ArrayList<>(years1);
+        Collections.sort(combined);
+        return combined;
+    }
+
     T21Analysis(String uni_1, String uni_2, List<String> years) {
         /*
             Your Code Here.
