@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Lab7Shriyan" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2f1pyrgSPUJxoQqkatjq8yvqksL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "JUnit.T21AnalysisTest1.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/shekh/IdeaProjects/COMP3111Final"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="comp3111.qsproject" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="COMP3111Final" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="COMP3111Final" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="" />
+      <created>1712978698451</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712978698451</updated>
+    </task>
+    <task id="LOCAL-00001" summary="First commit for T21 Analysis">
+      <option name="closed" value="true" />
+      <created>1713067827360</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713067827360</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Commit for ui.fxml and Controller">
+      <option name="closed" value="true" />
+      <created>1713068020952</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713068020952</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Commits for QSitem and QSList java files">
+      <option name="closed" value="true" />
+      <created>1713073814101</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713073814101</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update Controller and QSList">
+      <option name="closed" value="true" />
+      <created>1713074033714</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713074033714</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update Files">
+      <option name="closed" value="true" />
+      <created>1713166015015</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713166015015</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Second Commit: Updated QSList.java and finished creating line chart and bar chart for task2.1">
+      <option name="closed" value="true" />
+      <created>1713166118900</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713166118900</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update Task2.2 in Controller and made changes to T21 Analysis">
+      <option name="closed" value="true" />
+      <created>1713189269503</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713189269503</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Started BarChart Task2.2 and made constructor for it.">
+      <option name="closed" value="true" />
+      <created>1713189372017</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713189372017</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Edited LineChart in T22Analysis, Changed slight code in T21 Analysis and changed Controller error statements">
+      <option name="closed" value="true" />
+      <created>1713260105331</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713260105331</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Lab7 final testing">
+      <option name="closed" value="true" />
+      <created>1713274353926</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713274353926</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Lab7 testing">
+      <option name="closed" value="true" />
+      <created>1713274486302</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713274486302</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit for T21 Analysis" />
+    <MESSAGE value="Commit for ui.fxml and Controller" />
+    <MESSAGE value="Commits for QSitem and QSList java files" />
+    <MESSAGE value="Update Controller and QSList" />
+    <MESSAGE value="Update Files" />
+    <MESSAGE value="Second Commit: Updated QSList.java and finished creating line chart and bar chart for task2.1" />
+    <MESSAGE value="Update Task2.2 in Controller and made changes to T21 Analysis" />
+    <MESSAGE value="Started BarChart Task2.2 and made constructor for it." />
+    <MESSAGE value="Edited LineChart in T22Analysis, Changed slight code in T21 Analysis and changed Controller error statements" />
+    <MESSAGE value="Lab7 final testing" />
+    <MESSAGE value="Lab7 testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab7 testing" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>comp3111.qsproject.*</FILTER>
+    </SUITE>
+  </component>
+</project>
