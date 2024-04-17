@@ -68,9 +68,10 @@ public class QSItem {
 
     String getProperty(String property) {
         String propertyValue = new String();
+        Field field;
 
         try {
-            Field field = getClass().getDeclaredField(property);
+            field = getClass().getDeclaredField(property);
             field.setAccessible(true);
             Object value = field.get(this);
             if (value != null){
@@ -80,9 +81,12 @@ public class QSItem {
                 propertyValue = null;
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+            field = null;
         }
 
+        if (field == null) {
+            return null;
+        }
 
         return propertyValue;
     }

@@ -47,21 +47,7 @@ public class T22Analysis {
 
         for (QSItem qsItem: CountryList) {
             String scoreString = "";
-            if (searchName.equals("Score")) {
-                scoreString = qsItem.getScore();
-            }
-            else if (searchName.equals("Rank")) {
-                scoreString = qsItem.getRank();
-            }
-            else if (searchName.equals("International Students")){
-                scoreString = qsItem.getInternationalStudents();
-            }
-            else if (searchName.equals("Student Faculty Ratio")){
-                scoreString = qsItem.getStudentFacultyRatio();
-            }
-            else if (searchName.equals("Faculty Count")){
-                scoreString = qsItem.getFacultyCount();
-            }
+            scoreString = qsItem.getProperty(searchName);
 
             if (scoreString == null){
                 continue;
@@ -123,7 +109,7 @@ public class T22Analysis {
             List <QSItem> filtered = CountryRegion1List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
             country1Values.clear();
             country1Values.addAll(filtered);
-            double countryAverage1 = calculate (country1Values,"Score");
+            double countryAverage1 = calculate (country1Values,searchName);
             series1.getData().add(new XYChart.Data<>(year, countryAverage1));
         }
 
@@ -143,7 +129,7 @@ public class T22Analysis {
             List <QSItem> filtered = CountryRegion2List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
             country2Values.clear();
             country2Values.addAll(filtered);
-            double countryAverage2 = calculate (country2Values,"Score");
+            double countryAverage2 = calculate (country2Values,searchName);
 
             series2.getData().add(new XYChart.Data<>(year, countryAverage2));
         }

@@ -223,47 +223,18 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t21RankBarChart" layoutX="-7.0" legendVisible="false" prefHeight="185.0" prefWidth="282.0">
+                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="321.0" prefWidth="697.0">
                                                                      <xAxis>
-                                                                        <NumberAxis label="Avg. Rank" />
+                                                                        <NumberAxis prefWidth="656.0" />
                                                                      </xAxis>
                                                                      <yAxis>
-                                                                        <CategoryAxis animated="false" endMargin="1.0" side="LEFT" startMargin="1.0" tickLabelRotation="90.0" tickLength="6.0" />
+                                                                        <CategoryAxis animated="false">
+                                                                           <tickLabelFont>
+                                                                              <Font size="10.0" />
+                                                                           </tickLabelFont></CategoryAxis>
                                                                      </yAxis>
                                                                   </BarChart>
-                                                                  <BarChart fx:id="t21InternationalBarChart" layoutY="176.0" legendVisible="false" prefHeight="188.0" prefWidth="407.0">
-                                                                     <xAxis>
-                                                                        <NumberAxis label="Avg. International Students" />
-                                                                     </xAxis>
-                                                                     <yAxis>
-                                                                        <CategoryAxis animated="false" />
-                                                                     </yAxis>
-                                                                  </BarChart>
-                                                                  <BarChart fx:id="t21ScoreBarChart" layoutX="259.0" legendVisible="false" prefHeight="185.0" prefWidth="235.0">
-                                                                     <xAxis>
-                                                                        <NumberAxis label="Avg. Score" />
-                                                                     </xAxis>
-                                                                     <yAxis>
-                                                                        <CategoryAxis tickLabelsVisible="false" />
-                                                                     </yAxis>
-                                                                  </BarChart>
-                                                                  <BarChart fx:id="t21FacultyBarChart" layoutX="481.0" legendVisible="false" prefHeight="185.0" prefWidth="222.0">
-                                                                     <xAxis>
-                                                                        <NumberAxis label="Avg. Faculty Count " />
-                                                                     </xAxis>
-                                                                     <yAxis>
-                                                                        <CategoryAxis tickLabelsVisible="false" />
-                                                                     </yAxis>
-                                                                  </BarChart>
-                                                                  <BarChart fx:id="t21SFRBarChart" layoutX="403.0" layoutY="178.0" legendVisible="false" prefHeight="185.0" prefWidth="314.0">
-                                                                     <xAxis>
-                                                                        <NumberAxis label="Avg. Student Faculty Radio" />
-                                                                     </xAxis>
-                                                                     <yAxis>
-                                                                        <CategoryAxis tickLabelsVisible="false" />
-                                                                     </yAxis>
-                                                                  </BarChart>
-                                                                  <ComboBox fx:id="FieldSelect" layoutX="540.0" layoutY="20.0" prefWidth="150.0" />
+                                                                  <ComboBox fx:id="FieldSelect" layoutX="14.0" layoutY="14.0" onAction="#HandleCombo" prefWidth="150.0" />
                                                                </children>
                                                             </AnchorPane>
                                                          </content>
