@@ -52,6 +52,10 @@ public class T22Analysis {
             if (scoreString == null){
                 continue;
             }
+            else if (scoreString.isEmpty()){
+                continue;
+            }
+
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
             scoreString = scoreString.replaceAll("\\.", "");

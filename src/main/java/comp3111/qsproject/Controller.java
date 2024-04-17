@@ -79,6 +79,9 @@ public class Controller {
     public ComboBox<String> FieldSelect;
 
     @FXML
+    public ComboBox<String> FieldSelect2;
+
+    @FXML
     public ChoiceBox<String> t2CountryRegion1ChoiceBox;
     @FXML
     public ChoiceBox<String> t2CountryRegion2ChoiceBox;
@@ -135,12 +138,19 @@ public class Controller {
     public BarChart<Double, String> t22SFRBarChart;
     @FXML
     public LineChart<String, Double> t22LineChart;
+    @FXML
+    public BarChart<Double, String> t22OverallBarChart;
 
     public XYChart.Series<Double, String> barChartData;
     public XYChart.Series<Double, String> barChartData2;
     public XYChart.Series<Double, String> barChartData3;
     public XYChart.Series<Double, String> barChartData4;
     public XYChart.Series<Double, String> barChartData5;
+    public XYChart.Series<Double, String> barChartData21;
+    public XYChart.Series<Double, String> barChartData22;
+    public XYChart.Series<Double, String> barChartData23;
+    public XYChart.Series<Double, String> barChartData24;
+    public XYChart.Series<Double, String> barChartData25;
 
 
     /* T3 Controller */
@@ -216,6 +226,7 @@ public class Controller {
 
         //xAxis.setText ("Avg. Rank");
         FieldSelect.setItems(FXCollections.observableArrayList("Rank", "Score", "Faculty Count", "International Student", "Student Faculty Ratio"));
+        FieldSelect2.setItems(FXCollections.observableArrayList("Rank", "Score", "Faculty Count", "International Student", "Student Faculty Ratio"));
         // T3
         /*
             Your Code Here.
@@ -417,6 +428,7 @@ public class Controller {
         //Clear Countries/regions
         t2CountryRegion1ChoiceBox.setValue(null);
         t2CountryRegion2ChoiceBox.setValue(null);
+        FieldSelect2.setValue(null);
 
         //Clear Years
         t22017CheckBox2.setSelected(false);
@@ -429,12 +441,26 @@ public class Controller {
         //Clear Error Message
         error2.setText("");
 
+        //Clear Data
+        if (barChartData21 != null){
+            barChartData21.getData().clear();
+        }
+        if (barChartData22 !=null){
+            barChartData22.getData().clear();
+        }
+        if (barChartData23 !=null){
+            barChartData23.getData().clear();
+        }
+        if (barChartData24 !=null){
+            barChartData24.getData().clear();
+        }
+        if (barChartData25 !=null){
+            barChartData25.getData().clear();
+        }
+
         //Clear Charts
-        t22RankBarChart.getData().clear();
-        t22InternationalBarChart.getData().clear();
-        t22FacultyBarChart.getData().clear();
-        t22ScoreBarChart.getData().clear();
-        t22SFRBarChart.getData().clear();
+        t22OverallBarChart.getData().clear();
+        t22OverallBarChart.getXAxis().setLabel ("");
         t22LineChart.getData().clear();
         /*
             Your Code Here.
@@ -445,6 +471,7 @@ public class Controller {
     @FXML
     private void T22_onClickCompare() {
         error2.setText("");
+        t22OverallBarChart.getXAxis().setLabel ("");
 
         String countryregion1 = t2CountryRegion1ChoiceBox.getValue();
         String countryregion2 = t2CountryRegion2ChoiceBox.getValue();
@@ -499,32 +526,29 @@ public class Controller {
             error2.setText("Please Select Year");
         }
         else{
-            t22RankBarChart.getData().clear();
-            t22InternationalBarChart.getData().clear();
-            t22FacultyBarChart.getData().clear();
-            t22ScoreBarChart.getData().clear();
-            t22SFRBarChart.getData().clear();
+            FieldSelect2.setValue("Score"); //Default Display will be Score
+
+            //Clear Charts
+            t22OverallBarChart.getData().clear();
             t22LineChart.getData().clear();
-
+            t22OverallBarChart.getXAxis().setLabel ("Avg. Score");
+            //Create Analyzer
             T22Analysis analyzer2 = new T22Analysis (countryregion1, countryregion2, SelectedYears22);
-            XYChart.Series<Double, String> barChartData1 = analyzer2.getBarChartData("rank");
-            t22RankBarChart.getData().add(barChartData1);
+            barChartData21 = analyzer2.getBarChartData("rank");
+            barChartData22 = analyzer2.getBarChartData("score");
+            barChartData23 = analyzer2.getBarChartData("studentFacultyRatio");
+            barChartData24 = analyzer2.getBarChartData("internationalStudents");
+            barChartData25 = analyzer2.getBarChartData("facultyCount");
 
-            XYChart.Series<Double, String> barChartData2 = analyzer2.getBarChartData("score");
-            t22ScoreBarChart.getData().add(barChartData2);
+            //Set Default overall to Score Graph
+            t22OverallBarChart.getData().addAll(barChartData22);
 
-            XYChart.Series<Double, String> barChartData3 = analyzer2.getBarChartData("studentFacultyRatio");
-            t22SFRBarChart.getData().add(barChartData3);
-
-            XYChart.Series<Double, String> barChartData4 = analyzer2.getBarChartData("internationalStudents");
-            t22InternationalBarChart.getData().add(barChartData4);
-
-            XYChart.Series<Double, String> barChartData5 = analyzer2.getBarChartData("facultyCount");
-            t22FacultyBarChart.getData().add(barChartData5);
-
-            List<XYChart.Series<String, Double>> lineChartData1 = analyzer2.getLineChartData("score");
-            t22LineChart.getData().addAll(lineChartData1);
+            //Set Line Chart
+            List<XYChart.Series<String, Double>> lineChartData = analyzer2.getLineChartData("score");
+            t22LineChart.getData().addAll(lineChartData);
         }
+
+
 
 
         /*
@@ -539,6 +563,43 @@ public class Controller {
          */
     }
 
+    @FXML
+    private void HandleCombo2 (ActionEvent event){
+        String choice = FieldSelect2.getValue();
+        if (choice != null){
+            t22OverallBarChart.getData().clear();
+            if (choice.equals("Score")){
+                if (barChartData22 !=null){
+                    t22OverallBarChart.getData().add(barChartData22);
+                }
+                t22OverallBarChart.getXAxis().setLabel ("Avg. Score");
+            }
+            else if (choice.equals("Faculty Count")){
+                if (barChartData25!=null){
+                    t22OverallBarChart.getData().add(barChartData25);
+                }
+                t22OverallBarChart.getXAxis().setLabel ("Avg. Faculty Count");
+            }
+            else if (choice.equals("Rank")){
+                if (barChartData21!=null){
+                    t22OverallBarChart.getData().add(barChartData21);
+                }
+                t22OverallBarChart.getXAxis().setLabel ("Avg. Rank");
+            }
+            else if (choice.equals("International Student")){
+                if (barChartData24!=null){
+                    t22OverallBarChart.getData().add(barChartData24);
+                }
+                t22OverallBarChart.getXAxis().setLabel ("Avg. International Students");
+            }
+            else if (choice.equals("Student Faculty Ratio")){
+                if (barChartData23!=null){
+                    t22OverallBarChart.getData().add(barChartData23);
+                }
+                t22OverallBarChart.getXAxis().setLabel ("Avg. Student Faculty Ratio");
+            }
+        }
+    }
         @FXML
     private void T3_onClickClear() {
         /*
