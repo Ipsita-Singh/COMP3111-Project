@@ -21,13 +21,16 @@ public class T22Analysis {
                 .filter(qsItem -> (qsItem.getCountry().equals(country_region_2) || qsItem.getRegion().equals(country_region_2)) && years.contains(qsItem.getYear()))
                 .collect(Collectors.toList());
 
-
-        if (country_region_1.equals ("All")){
-            country1 = QSList.list.stream().filter (qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (country_region_1!=null) {
+            if (country_region_1.equals("All")) {
+                country1 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
-        if (country_region_2.equals("All")){
-            country2 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (country_region_2!=null) {
+            if (country_region_2.equals("All")) {
+                country2 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
         country1.sort(Comparator.comparing (QSItem::getYear));
