@@ -223,7 +223,7 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="186.0" prefWidth="697.0">
+                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="307.0" prefWidth="697.0">
                                                                      <xAxis>
                                                                         <NumberAxis prefWidth="656.0" />
                                                                      </xAxis>

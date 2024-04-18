@@ -223,7 +223,7 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="186.0" prefWidth="697.0">
+                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="323.0" prefWidth="697.0">
                                                                      <xAxis>
                                                                         <NumberAxis prefWidth="656.0" />
                                                                      </xAxis>
@@ -338,7 +338,7 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t22OverallBarChart" layoutX="-5.0" layoutY="29.0" legendVisible="false" prefHeight="199.0" prefWidth="701.0">
+                                                                  <BarChart fx:id="t22OverallBarChart" layoutX="-5.0" layoutY="29.0" legendVisible="false" prefHeight="323.0" prefWidth="701.0">
                                                                      <xAxis>
                                                                         <NumberAxis prefWidth="653.0">
                                                                            <tickLabelFont>

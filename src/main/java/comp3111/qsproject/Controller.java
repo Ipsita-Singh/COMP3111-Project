@@ -12,10 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Font;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Controller {
 
@@ -315,7 +313,6 @@ public class Controller {
         String university1 = t2University1ChoiceBox.getValue();
         String university2 = t2University2ChoiceBox.getValue();
 
-
         boolean yearCondition = false;
         List <String> SelectedYears = new ArrayList<>();
         CheckBox[] checkboxes = {
@@ -335,31 +332,61 @@ public class Controller {
             }
         }
 
+        List <QSItem> universityList1 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university1) && SelectedYears.contains(qsItem.year)).collect(Collectors.toList());
+        List <QSItem> universityList2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university2) && SelectedYears.contains(qsItem.year)).collect(Collectors.toList());
+
         if (university1 == null) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
             if (university2 == null) {
                 if (yearCondition == false) {
+                    alert.setContentText("Please Select University 1, University 2, and Year");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error1.setText("Please Select University 1, University 2, and Year");
                 }
                 else {
+                    alert.setContentText("Please Select University 1 and University 2");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error1.setText("Please Select University 1 and University 2");
                 }
             }
             else if (yearCondition == false) {
+                alert.setContentText("Please Select University 1 and Year");
+                Optional<ButtonType> result = alert.showAndWait();
                 error1.setText("Please Select University 1 and Year");
             }
             else {
+                alert.setContentText("Please Select University 1");
+                Optional<ButtonType> result = alert.showAndWait();
                 error1.setText("Please Select University 1");
             }
         }
         else if (university2 == null) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
             if (yearCondition == false) {
+                alert.setContentText("Please Select University 2 and Year");
+                Optional<ButtonType> result = alert.showAndWait();
                 error1.setText("Please Select University 2 and Year");
             } else {
+                alert.setContentText("Please Select University 2");
+                Optional<ButtonType> result = alert.showAndWait();
                 error1.setText("Please Select University 2");
             }
         }
         else if (yearCondition == false) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            alert.setContentText("Please Select Year");
+            Optional<ButtonType> result = alert.showAndWait();
             error1.setText("Please Select Year");
+        }
+        else if (universityList1.isEmpty() || universityList2.isEmpty()){
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            alert.setContentText("Please Select Another Year or University");
+            Optional<ButtonType> result = alert.showAndWait();
+            error1.setText("Please Select Another Year or University");
         }
         else{
             FieldSelect.setValue("Score"); //Default Display will be Score
@@ -381,6 +408,7 @@ public class Controller {
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer.getLineChartData("score");
+            lineChartData.sort(Comparator.comparing(series -> series.getData().get(0).getXValue().toString()));
             t21LineChart.getData().addAll(lineChartData);
         }
     }
@@ -496,34 +524,68 @@ public class Controller {
             }
         }
 
+        List<QSItem> countryList1 = QSList.list.stream()
+                .filter(qsItem -> (qsItem.getCountry().equals(countryregion1) || qsItem.getRegion().equals(countryregion1)) && SelectedYears22.contains(qsItem.getYear()))
+                .collect(Collectors.toList());
+        List<QSItem> countryList2 = QSList.list.stream()
+                .filter(qsItem -> (qsItem.getCountry().equals(countryregion2) || qsItem.getRegion().equals(countryregion2)) && SelectedYears22.contains(qsItem.getYear()))
+                .collect(Collectors.toList());
+
         if (countryregion1 == null) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
             if (countryregion2 == null) {
                 if (yearCondition_22 == false) {
+                    alert.setContentText("Please Select Country/Region 1, Country/Region 2, and Year");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error2.setText("Please Select Country/Region 1, Country/Region 2, and Year");
                 }
                 else {
+                    alert.setContentText("Please Select Country/Region 1 and Country/Region 2");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error2.setText("Please Select Country/Region 1 and Country/Region 2");
                 }
             }
             else {
                 if (yearCondition_22 == false) {
+                    alert.setContentText("Please Select Country/Region 1 and Year");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error2.setText("Please Select Country/Region 1 and Year");
                 }
                 else {
+                    alert.setContentText("Please Select Country/Region 1");
+                    Optional<ButtonType> result = alert.showAndWait();
                     error2.setText("Please Select Country/Region 1");
                 }
             }
         }
         else if (countryregion2 == null) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
             if (yearCondition_22 == false) {
+                alert.setContentText("Please Select Country/Region 2 and Year");
+                Optional<ButtonType> result = alert.showAndWait();
                 error2.setText("Please Select Country/Region 2 and Year");
             }
             else {
+                alert.setContentText("Please Select Country/Region 2");
+                Optional<ButtonType> result = alert.showAndWait();
                 error2.setText("Please Select Country/Region 2");
             }
         }
         else if (yearCondition_22 == false) {
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            alert.setContentText("Please Select Year");
+            Optional<ButtonType> result = alert.showAndWait();
             error2.setText("Please Select Year");
+        }
+        else if (countryList1.isEmpty() || countryList2.isEmpty()){
+            Alert alert = new Alert (Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            alert.setContentText("Please Select Another Year or Country/Region");
+            Optional<ButtonType> result = alert.showAndWait();
+            error2.setText("Please Select Another Year or Country/Region");
         }
         else{
             FieldSelect2.setValue("Score"); //Default Display will be Score
@@ -545,6 +607,7 @@ public class Controller {
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer2.getLineChartData("score");
+            lineChartData.sort(Comparator.comparing(series -> series.getData().get(0).getXValue().toString()));
             t22LineChart.getData().addAll(lineChartData);
         }
 
