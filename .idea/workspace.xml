@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/comp3111/qsproject/ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/comp3111/qsproject/ui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/ui.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713346313835</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added ComboBox for T22 Analysis, which updates ui.fxml, T22 Analysis and Controller">
+      <option name="closed" value="true" />
+      <created>1713360934312</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713360934312</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -227,7 +228,8 @@
     <MESSAGE value="Uploading qs.csv" />
     <MESSAGE value="Updated QSItem Property and corresponding T21 and T22 changes" />
     <MESSAGE value="Updated QSItem Property and corresponding T21 and T22 changes. Added a COMBOBOX in Controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated QSItem Property and corresponding T21 and T22 changes. Added a COMBOBOX in Controller." />
+    <MESSAGE value="Added ComboBox for T22 Analysis, which updates ui.fxml, T22 Analysis and Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ComboBox for T22 Analysis, which updates ui.fxml, T22 Analysis and Controller" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
