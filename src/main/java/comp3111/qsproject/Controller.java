@@ -531,12 +531,16 @@ public class Controller {
                 .filter(qsItem -> (qsItem.getCountry().equals(countryregion2) || qsItem.getRegion().equals(countryregion2)) && SelectedYears22.contains(qsItem.getYear()))
                 .collect(Collectors.toList());
 
-        if (countryregion1.equals ("All")){
-            countryList1 = QSList.list.stream().filter (qsItem -> (SelectedYears22.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (countryregion1!=null) {
+            if (countryregion1.equals("All")){
+                countryList1 = QSList.list.stream().filter(qsItem -> (SelectedYears22.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
-        if (countryregion2.equals("All")){
-            countryList2 = QSList.list.stream().filter(qsItem -> (SelectedYears22.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (countryregion2!=null) {
+            if (countryregion2.equals("All")) {
+                countryList2 = QSList.list.stream().filter(qsItem -> (SelectedYears22.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
         if (countryregion1 == null) {
