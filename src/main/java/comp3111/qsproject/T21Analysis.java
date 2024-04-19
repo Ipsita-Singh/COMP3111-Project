@@ -135,51 +135,9 @@ public class T21Analysis {
 
             series2.getData().add(new XYChart.Data<>(year, score));
         }
-        List <String> yearsSelected = new ArrayList<>();
 
-        for (QSItem qsItem: University1List){
-            yearsSelected.add(qsItem.getYear());
-        }
-
-        List <String> yearsSelected2 = new ArrayList<>();
-
-        for (QSItem qsItem: University2List){
-            yearsSelected2.add(qsItem.getYear());
-        }
-        Set<String> uniqueYears = new HashSet<>(yearsSelected);
-        yearsSelected.clear();
-        yearsSelected.addAll(uniqueYears);
-        Collections.sort(yearsSelected);
-
-        Set<String> uniqueYears2 = new HashSet<>(yearsSelected2);
-        yearsSelected2.clear();
-        yearsSelected2.addAll(uniqueYears2);
-        Collections.sort(yearsSelected2);
-
-        List<String> combinedYears = new ArrayList<>(yearsSelected);
-        combinedYears.addAll(yearsSelected2);
-        Set<String> allYears = new HashSet<>(combinedYears);
-        combinedYears.clear();
-        combinedYears.addAll(allYears);
-        Collections.sort(combinedYears);
-
-        boolean reverse = false;
-        for (String year: combinedYears){
-            if (yearsSelected.contains(year)){
-                continue;
-            }
-            else{
-                reverse = true;
-            }
-        }
-        if (reverse){
-            lineData.add(series2);
-            lineData.add(series1);
-        }
-        else{
-            lineData.add(series1);
-            lineData.add(series2);
-        }
+        lineData.add(series1);
+        lineData.add(series2);
 
 
         return lineData;

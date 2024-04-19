@@ -1,16 +1,13 @@
 package comp3111.qsproject;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Font;
+
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -109,31 +106,13 @@ public class Controller {
     @FXML
     public CheckBox t22022CheckBox2;
 
-    @FXML
-    public BarChart<Double, String> t21RankBarChart;
-    @FXML
-    public BarChart<Double, String> t21ScoreBarChart;
-    @FXML
-    public BarChart<Double, String> t21FacultyBarChart;
-    @FXML
-    public BarChart<Double, String> t21InternationalBarChart;
-    @FXML
-    public BarChart<Double, String> t21SFRBarChart;
+
     @FXML
     public LineChart<String, Double> t21LineChart;
 
     @FXML
     public BarChart<Double, String> t21OverallBarChart;
-    @FXML
-    public BarChart<Double, String> t22RankBarChart;
-    @FXML
-    public BarChart<Double, String> t22ScoreBarChart;
-    @FXML
-    public BarChart<Double, String> t22FacultyBarChart;
-    @FXML
-    public BarChart<Double, String> t22InternationalBarChart;
-    @FXML
-    public BarChart<Double, String> t22SFRBarChart;
+
     @FXML
     public LineChart<String, Double> t22LineChart;
     @FXML
@@ -205,14 +184,14 @@ public class Controller {
          */
         //t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
         ObservableList<String> sortedUniversity = QSList.university;
-        Collections.sort(sortedUniversity, Comparator.naturalOrder());
+        sortedUniversity.sort(Comparator.naturalOrder());
         t2University1ChoiceBox.setItems(sortedUniversity);
         t2University2ChoiceBox.setItems(sortedUniversity);
 
         ObservableList<String> sortedCountry = QSList.country;
         ObservableList<String> sortedRegion = QSList.region;
-        Collections.sort(sortedCountry, Comparator.naturalOrder());
-        Collections.sort(sortedRegion, Comparator.naturalOrder());
+        sortedCountry.sort(Comparator.naturalOrder());
+        sortedRegion.sort(Comparator.naturalOrder());
 
         ObservableList<String> combinedList = FXCollections.observableArrayList();
         combinedList.addAll(sortedCountry);
@@ -225,6 +204,14 @@ public class Controller {
         //xAxis.setText ("Avg. Rank");
         FieldSelect.setItems(FXCollections.observableArrayList("Rank", "Score", "Faculty Count", "International Student", "Student Faculty Ratio"));
         FieldSelect2.setItems(FXCollections.observableArrayList("Rank", "Score", "Faculty Count", "International Student", "Student Faculty Ratio"));
+
+        CategoryAxis xAxis = (CategoryAxis) t21LineChart.getXAxis();
+        xAxis.setAutoRanging(true);
+        xAxis.setCategories(yearList);
+
+        CategoryAxis xAxis2 = (CategoryAxis) t22LineChart.getXAxis();
+        xAxis2.setAutoRanging(true);
+        xAxis2.setCategories(yearList);
         // T3
         /*
             Your Code Here.
@@ -269,6 +256,10 @@ public class Controller {
         t2University2ChoiceBox.setValue(null);
         FieldSelect.setValue(null);
 
+        CategoryAxis xAxis = (CategoryAxis) t21LineChart.getXAxis();
+        xAxis.setAutoRanging(true);
+        xAxis.setCategories(yearList);
+
         //Clear Years
         t22017CheckBox.setSelected(false);
         t22018CheckBox.setSelected(false);
@@ -279,7 +270,8 @@ public class Controller {
 
         //Clear Error message
         error1.setText("");
-        //xAxis.setText("Avg. Rank");
+        t21LineChart.setTitle("");
+
 
         //Clear Data
         if (barChartData != null){
@@ -332,60 +324,60 @@ public class Controller {
             }
         }
 
-        List <QSItem> universityList1 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university1) && SelectedYears.contains(qsItem.year)).collect(Collectors.toList());
-        List <QSItem> universityList2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university2) && SelectedYears.contains(qsItem.year)).collect(Collectors.toList());
+        List <QSItem> universityList1 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university1) && SelectedYears.contains(qsItem.year)).toList();
+        List <QSItem> universityList2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university2) && SelectedYears.contains(qsItem.year)).toList();
 
         if (university1 == null) {
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             if (university2 == null) {
-                if (yearCondition == false) {
+                if (!yearCondition) {
                     alert.setContentText("Please Select University 1, University 2, and Year");
-                    Optional<ButtonType> result = alert.showAndWait();
+                    alert.showAndWait();
                     error1.setText("Please Select University 1, University 2, and Year");
                 }
                 else {
                     alert.setContentText("Please Select University 1 and University 2");
-                    Optional<ButtonType> result = alert.showAndWait();
+                    alert.showAndWait();
                     error1.setText("Please Select University 1 and University 2");
                 }
             }
-            else if (yearCondition == false) {
+            else if (!yearCondition) {
                 alert.setContentText("Please Select University 1 and Year");
-                Optional<ButtonType> result = alert.showAndWait();
+                alert.showAndWait();
                 error1.setText("Please Select University 1 and Year");
             }
             else {
                 alert.setContentText("Please Select University 1");
-                Optional<ButtonType> result = alert.showAndWait();
+                alert.showAndWait();
                 error1.setText("Please Select University 1");
             }
         }
         else if (university2 == null) {
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
-            if (yearCondition == false) {
+            if (!yearCondition) {
                 alert.setContentText("Please Select University 2 and Year");
-                Optional<ButtonType> result = alert.showAndWait();
+                alert.showAndWait();
                 error1.setText("Please Select University 2 and Year");
             } else {
                 alert.setContentText("Please Select University 2");
-                Optional<ButtonType> result = alert.showAndWait();
+                alert.showAndWait();
                 error1.setText("Please Select University 2");
             }
         }
-        else if (yearCondition == false) {
+        else if (!yearCondition) {
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Year");
-            Optional<ButtonType> result = alert.showAndWait();
+            alert.showAndWait();
             error1.setText("Please Select Year");
         }
         else if (universityList1.isEmpty() || universityList2.isEmpty()){
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Another Year or University");
-            Optional<ButtonType> result = alert.showAndWait();
+            alert.showAndWait();
             error1.setText("Please Select Another Year or University");
         }
         else{
@@ -408,8 +400,13 @@ public class Controller {
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer.getLineChartData("score");
-            lineChartData.sort(Comparator.comparing(series -> series.getData().get(0).getXValue().toString()));
             t21LineChart.getData().addAll(lineChartData);
+            CategoryAxis xAxis = (CategoryAxis) t21LineChart.getXAxis();
+            xAxis.setAutoRanging(true);
+            ObservableList<String> categories = FXCollections.observableArrayList(SelectedYears);
+            xAxis.setCategories(categories);
+            t21LineChart.setTitle("Average Score over Time");
+
         }
     }
     @FXML
@@ -458,6 +455,10 @@ public class Controller {
         t2CountryRegion2ChoiceBox.setValue(null);
         FieldSelect2.setValue(null);
 
+        CategoryAxis xAxis2 = (CategoryAxis) t22LineChart.getXAxis();
+        xAxis2.setAutoRanging(true);
+        xAxis2.setCategories(yearList);
+
         //Clear Years
         t22017CheckBox2.setSelected(false);
         t22018CheckBox2.setSelected(false);
@@ -468,6 +469,7 @@ public class Controller {
 
         //Clear Error Message
         error2.setText("");
+        t22LineChart.setTitle("");
 
         //Clear Data
         if (barChartData21 != null){
@@ -619,8 +621,12 @@ public class Controller {
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer2.getLineChartData("score");
-            lineChartData.sort(Comparator.comparing(series -> series.getData().get(0).getXValue().toString()));
             t22LineChart.getData().addAll(lineChartData);
+            CategoryAxis xAxis2 = (CategoryAxis) t22LineChart.getXAxis();
+            xAxis2.setAutoRanging(true);
+            ObservableList<String> categories = FXCollections.observableArrayList(SelectedYears22);
+            xAxis2.setCategories(categories);
+            t22LineChart.setTitle("Average Score over Time");
         }
 
 

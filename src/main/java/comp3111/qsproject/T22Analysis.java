@@ -141,30 +141,9 @@ public class T22Analysis {
             series2.getData().add(new XYChart.Data<>(year, countryAverage2));
         }
 
-        List<String> combinedYears = new ArrayList<>(yearsSelected);
-        combinedYears.addAll(yearsSelected2);
-        Set<String> allYears = new HashSet<>(combinedYears);
-        combinedYears.clear();
-        combinedYears.addAll(allYears);
-        Collections.sort(combinedYears);
 
-        boolean reverse = false;
-        for (String year: combinedYears){
-            if (yearsSelected.contains(year)){
-                continue;
-            }
-            else{
-                reverse = true;
-            }
-        }
-        if (reverse){
-            lineData.add(series2);
-            lineData.add(series1);
-        }
-        else{
-            lineData.add(series1);
-            lineData.add(series2);
-        }
+        lineData.add(series1);
+        lineData.add(series2);
 
         return lineData;
     }
