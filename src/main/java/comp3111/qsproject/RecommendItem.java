@@ -27,6 +27,16 @@ public class RecommendItem {
             1. Update the best rank and the corresponding year.
             2. Update the most recent year and the corresponding rank.
          */
+        // Update the best rank and the corresponding year.
+        if (Integer.parseInt(item.rank) < Integer.parseInt(bestRank)) {
+            bestRank = item.rank;
+            bestYear = item.year;
+        }
+        // Update the most recent year and the corresponding rank.
+        if (Integer.parseInt(item.year) > Integer.parseInt(recentYear)) {
+            recentYear = item.year;
+            recentRank = item.rank;
+        }
     }
 
     public String getName() { return name; }
