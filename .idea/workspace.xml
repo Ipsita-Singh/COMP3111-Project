@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="" />
+    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,10 +28,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lab7Shriyan" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Shriyan-Shekhar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="93c00378-ea2e-4129-8758-a4d75293c16b" />
+        <option name="url" value="https://github.com/Ipsita-Singh/COMP3111-Project.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,18 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "JUnit.T21AnalysisTest1.executor": "Coverage",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/shekh/IdeaProjects/COMP3111Final"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.T21AnalysisTest1.executor&quot;: &quot;Coverage&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Shriyan&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/shekh/IdeaProjects/COMP3111Final&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -183,7 +206,71 @@
       <option name="project" value="LOCAL" />
       <updated>1713274486302</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Uploading qs.csv">
+      <option name="closed" value="true" />
+      <created>1713274707062</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713274707062</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated QSItem Property and corresponding T21 and T22 changes. Added a COMBOBOX in Controller.">
+      <option name="closed" value="true" />
+      <created>1713346313835</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713346313835</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added ComboBox for T22 Analysis, which updates ui.fxml, T22 Analysis and Controller">
+      <option name="closed" value="true" />
+      <created>1713360934312</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713360934312</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Edited Controller and T21 Analysis in order to sort LineChart according to the years">
+      <option name="closed" value="true" />
+      <created>1713435234089</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713435234089</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Change to T21 and T22">
+      <option name="closed" value="true" />
+      <created>1713447140601</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447140601</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Included &quot;All&quot; for country/region in Controller">
+      <option name="closed" value="true" />
+      <created>1713447713681</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713447713681</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Included Null Case in Controller">
+      <option name="closed" value="true" />
+      <created>1713448192722</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713448192722</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Included Null Case in T22">
+      <option name="closed" value="true" />
+      <created>1713448659025</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713448659025</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -198,7 +285,16 @@
     <MESSAGE value="Edited LineChart in T22Analysis, Changed slight code in T21 Analysis and changed Controller error statements" />
     <MESSAGE value="Lab7 final testing" />
     <MESSAGE value="Lab7 testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab7 testing" />
+    <MESSAGE value="Uploading qs.csv" />
+    <MESSAGE value="Updated QSItem Property and corresponding T21 and T22 changes" />
+    <MESSAGE value="Updated QSItem Property and corresponding T21 and T22 changes. Added a COMBOBOX in Controller." />
+    <MESSAGE value="Added ComboBox for T22 Analysis, which updates ui.fxml, T22 Analysis and Controller" />
+    <MESSAGE value="Edited Controller and T21 Analysis in order to sort LineChart according to the years" />
+    <MESSAGE value="Change to T21 and T22" />
+    <MESSAGE value="Included &quot;All&quot; for country/region in Controller" />
+    <MESSAGE value="Included Null Case in Controller" />
+    <MESSAGE value="Included Null Case in T22" />
+    <option name="LAST_COMMIT_MESSAGE" value="Included Null Case in T22" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

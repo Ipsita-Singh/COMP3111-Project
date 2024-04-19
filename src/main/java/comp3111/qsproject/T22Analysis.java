@@ -21,13 +21,16 @@ public class T22Analysis {
                 .filter(qsItem -> (qsItem.getCountry().equals(country_region_2) || qsItem.getRegion().equals(country_region_2)) && years.contains(qsItem.getYear()))
                 .collect(Collectors.toList());
 
-
-        if (country_region_1.equals ("All")){
-            country1 = QSList.list.stream().filter (qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (country_region_1!=null) {
+            if (country_region_1.equals("All")) {
+                country1 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
-        if (country_region_2.equals("All")){
-            country2 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+        if (country_region_2!=null) {
+            if (country_region_2.equals("All")) {
+                country2 = QSList.list.stream().filter(qsItem -> (years.contains(qsItem.getYear()))).collect(Collectors.toList());
+            }
         }
 
         country1.sort(Comparator.comparing (QSItem::getYear));
@@ -47,25 +50,15 @@ public class T22Analysis {
 
         for (QSItem qsItem: CountryList) {
             String scoreString = "";
-            if (searchName.equals("Score")) {
-                scoreString = qsItem.getScore();
-            }
-            else if (searchName.equals("Rank")) {
-                scoreString = qsItem.getRank();
-            }
-            else if (searchName.equals("International Students")){
-                scoreString = qsItem.getInternationalStudents();
-            }
-            else if (searchName.equals("Student Faculty Ratio")){
-                scoreString = qsItem.getStudentFacultyRatio();
-            }
-            else if (searchName.equals("Faculty Count")){
-                scoreString = qsItem.getFacultyCount();
-            }
+            scoreString = qsItem.getProperty(searchName);
 
             if (scoreString == null){
                 continue;
             }
+            else if (scoreString.isEmpty()){
+                continue;
+            }
+
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
             scoreString = scoreString.replaceAll("\\.", "");
@@ -123,7 +116,7 @@ public class T22Analysis {
             List <QSItem> filtered = CountryRegion1List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
             country1Values.clear();
             country1Values.addAll(filtered);
-            double countryAverage1 = calculate (country1Values,"Score");
+            double countryAverage1 = calculate (country1Values,searchName);
             series1.getData().add(new XYChart.Data<>(year, countryAverage1));
         }
 
@@ -143,10 +136,11 @@ public class T22Analysis {
             List <QSItem> filtered = CountryRegion2List.stream().filter(qsItem -> (qsItem.getYear().contains(year))).collect(Collectors.toList());
             country2Values.clear();
             country2Values.addAll(filtered);
-            double countryAverage2 = calculate (country2Values,"Score");
+            double countryAverage2 = calculate (country2Values,searchName);
 
             series2.getData().add(new XYChart.Data<>(year, countryAverage2));
         }
+
 
         lineData.add(series1);
         lineData.add(series2);

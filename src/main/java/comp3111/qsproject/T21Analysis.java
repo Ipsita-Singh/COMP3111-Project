@@ -35,21 +35,8 @@ public class T21Analysis {
 
         for (QSItem qsItem: UniversityList) {
             String scoreString = "";
-            if (searchName.equals("Score")) {
-                scoreString = qsItem.getScore();
-            }
-            else if (searchName.equals("Rank")) {
-                scoreString = qsItem.getRank();
-            }
-            else if (searchName.equals("International Students")){
-                scoreString = qsItem.getInternationalStudents();
-            }
-            else if (searchName.equals("Student Faculty Ratio")){
-                scoreString = qsItem.getStudentFacultyRatio();
-            }
-            else if (searchName.equals("Faculty Count")){
-                scoreString = qsItem.getFacultyCount();
-            }
+            scoreString = qsItem.getProperty(searchName);
+
             if (scoreString == null){
                 continue;
             }
@@ -100,9 +87,12 @@ public class T21Analysis {
 
         for (QSItem qsItem: University1List) {
             String year = qsItem.getYear();
-            String scoreString = qsItem.getScore();
+            String scoreString = qsItem.getProperty(searchName);
 
             if (scoreString == null){
+                continue;
+            }
+            else if (scoreString.isEmpty()){
                 continue;
             }
 
@@ -123,9 +113,12 @@ public class T21Analysis {
 
         for (QSItem qsItem2: University2List) {
             String year = qsItem2.getYear();
-            String scoreString = qsItem2.getScore();
+            String scoreString = qsItem2.getProperty(searchName);
 
             if (scoreString == null){
+                continue;
+            }
+            else if (scoreString.isEmpty()){
                 continue;
             }
             scoreString = scoreString.replaceAll(",", "");
@@ -145,6 +138,7 @@ public class T21Analysis {
 
         lineData.add(series1);
         lineData.add(series2);
+
 
         return lineData;
     }
