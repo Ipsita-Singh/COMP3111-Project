@@ -14,7 +14,17 @@ public class T21Analysis {
     private String University2Name;
 
 
-
+    /**
+     *  Constructor for T21Analysis.
+     *  Filters the QSList based on the provided university names and years,
+     *  sorts the filtered data by year, and creates observable lists for each university.
+     *  Assigns the sorted observable lists to teh first university list (University1List) and second university list (University2List) respectively
+     *  Assigns the name of the universities to the respective strings
+     * @author Shriyan Shekhar
+     * @param uni_1 The name of the first university.
+     * @param uni_2 The name of the second university.
+     * @param years A list of years to filter the QSList by.
+     */
     T21Analysis(String uni_1, String uni_2, List<String> years) {
         List <QSItem> university1 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(uni_1) && years.contains(qsItem.year)).collect(Collectors.toList());
         List <QSItem> university2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(uni_2) && years.contains(qsItem.year)).collect(Collectors.toList());
@@ -28,6 +38,14 @@ public class T21Analysis {
         University2Name = uni_2;
     }
 
+    /**
+     * Fetches the respective data based on searchName
+     * Calculates the average of the list given according to the property selected by searchName.
+     * @author Shriyan Shekhar
+     * @param UniversityList The list of QSItem objects representing one university's data
+     * @param searchName The name of the property required for calculation
+     * @return The average value of the specified property in the QSItem object or returns 0.0 if list is empty or null.
+     */
     public double calculate (ObservableList<QSItem> UniversityList , String searchName){
         double sum = 0.0;
         double length = 0.0;
@@ -65,6 +83,12 @@ public class T21Analysis {
         return sum / length;
     }
 
+    /**
+     * Retrieves Bar Chart Data for a property (given by searchName) in the two university data.
+     * @author Shriyan Shekhar
+     * @param searchName Name of the property to be retrieved for bar chart data
+     * @return A series of bar chart data points in which each point represents the average value of the property.
+     */
     XYChart.Series<Double, String> getBarChartData(String searchName) {
         XYChart.Series<Double, String> barData= new XYChart.Series<>();
         double displayAverage1 = calculate (University1List, searchName);
@@ -78,6 +102,12 @@ public class T21Analysis {
         return barData;
     }
 
+    /**
+     * Retrieves Line Chart Data for a property (given by searchName) in the two university data.
+     * @author Shriyan Shekhar
+     * @param searchName Name of the property to be retrieved for line chart data
+     * @return A list of series of line chart data points in which each point has a year and value of the property of the university.
+     */
     List<XYChart.Series<String, Double>> getLineChartData(String searchName) {
         List<XYChart.Series<String, Double>> lineData = new ArrayList<>();
         XYChart.Series<String, Double> series1 = new XYChart.Series<>();

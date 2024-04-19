@@ -71,6 +71,10 @@ public class Controller {
     @FXML
     public Label error2;
     @FXML
+    public Label ChartTitle1;
+    @FXML
+    public Label ChartTitle2;
+    @FXML
     public ComboBox<String> FieldSelect;
 
     @FXML
@@ -245,6 +249,10 @@ public class Controller {
          */
     }
 
+    /**
+     * Clears all the data, years selected, error messages, charts and combo box for the tab task2.1
+     * @author Shriyan Shekhar
+     */
     @FXML
     private void T21_onClickClear() {
         /*
@@ -270,6 +278,7 @@ public class Controller {
 
         //Clear Error message
         error1.setText("");
+        ChartTitle1.setText("");
         t21LineChart.setTitle("");
 
 
@@ -296,6 +305,14 @@ public class Controller {
         t21LineChart.getData().clear();
     }
 
+    /**
+     * Fetches university choices and years
+     * Clears Existing data on charts first before displaying new data.
+     * Creates an Analyzer.
+     * Displays bar chart and line chart data for task2.1 if all conditions are met otherwise displays an error message.
+     * Sets the X-Axis for the bar Chart Data.
+     * @author Shriyan Shekhar
+     */
     @FXML
     private void T21_onClickCompare() {
         //Set error text as empty
@@ -397,6 +414,7 @@ public class Controller {
 
             //Set Default overall to Score Graph
             t21OverallBarChart.getData().addAll(barChartData2);
+            ChartTitle1.setText("Comparing Avg. Score");
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer.getLineChartData("score");
@@ -409,11 +427,18 @@ public class Controller {
 
         }
     }
+
+
+    /**
+     * Handles the combo box selection and updates the chart data accordingly for university
+     * @author Shriyan Shekhar
+     */
     @FXML
-    private void HandleCombo (ActionEvent event){
+    private void HandleCombo (){
         String choice = FieldSelect.getValue();
         if (choice != null){
             t21OverallBarChart.getData().clear();
+            ChartTitle1.setText("Comparing Avg. "  + choice);
             if (choice.equals("Score")){
                 if (barChartData2 !=null){
                     t21OverallBarChart.getData().add(barChartData2);
@@ -448,6 +473,10 @@ public class Controller {
     }
 
 
+    /**
+     *  Clears all the data, years selected, error messages, charts and combo box for the tab task2.2
+     *  @author Shriyan Shekhar
+     */
     @FXML
     private void T22_onClickClear() {
         //Clear Countries/regions
@@ -470,6 +499,7 @@ public class Controller {
         //Clear Error Message
         error2.setText("");
         t22LineChart.setTitle("");
+        ChartTitle2.setText("");
 
         //Clear Data
         if (barChartData21 != null){
@@ -498,6 +528,14 @@ public class Controller {
          */
     }
 
+    /**
+     *  Fetches country/region choices and years
+     *  Clears Existing data on charts first before displaying new data.
+     *  Creates an Analyzer.
+     *  Displays bar chart and line chart data for task2.2 if all conditions are met otherwise displays an error message.
+     *  Sets the X-Axis for the bar Chart Data.
+     *  @author Shriyan Shekhar
+     */
     @FXML
     private void T22_onClickCompare() {
         error2.setText("");
@@ -618,6 +656,7 @@ public class Controller {
 
             //Set Default overall to Score Graph
             t22OverallBarChart.getData().addAll(barChartData22);
+            ChartTitle2.setText("Comparing Avg. Score");
 
             //Set Line Chart
             List<XYChart.Series<String, Double>> lineChartData = analyzer2.getLineChartData("score");
@@ -644,11 +683,16 @@ public class Controller {
          */
     }
 
+    /**
+     * Handles the combo box selection and updates the chart data accordingly for country/region
+     * @author Shriyan Shekhar
+     */
     @FXML
-    private void HandleCombo2 (ActionEvent event){
+    private void HandleCombo2 (){
         String choice = FieldSelect2.getValue();
         if (choice != null){
             t22OverallBarChart.getData().clear();
+            ChartTitle2.setText("Comparing Avg. " + choice);
             if (choice.equals("Score")){
                 if (barChartData22 !=null){
                     t22OverallBarChart.getData().add(barChartData22);

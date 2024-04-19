@@ -66,6 +66,12 @@ public class QSItem {
         return facultyCount;
     }
 
+    /**
+     * Retrieves the value of the specified property using reflection.
+     * @author Shriyan Shekhar
+     * @param property The name of the property to retrieve.
+     * @return The value of the property, or null if the property doesn't exist or is inaccessible.
+     */
     String getProperty(String property) {
         String propertyValue = new String();
         Field field;

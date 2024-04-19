@@ -7,11 +7,17 @@
     <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/QSItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/QSItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/QSList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/QSList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/comp3111/qsproject/ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/comp3111/qsproject/ui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/QSItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/QSItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/QSList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/QSList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/ui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/ui.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713448659025</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Included Title for Line Chart">
+      <option name="closed" value="true" />
+      <created>1713496954176</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713496954176</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -294,7 +308,8 @@
     <MESSAGE value="Included &quot;All&quot; for country/region in Controller" />
     <MESSAGE value="Included Null Case in Controller" />
     <MESSAGE value="Included Null Case in T22" />
-    <option name="LAST_COMMIT_MESSAGE" value="Included Null Case in T22" />
+    <MESSAGE value="Included Title for Line Chart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Included Title for Line Chart" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
