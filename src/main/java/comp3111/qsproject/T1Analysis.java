@@ -6,6 +6,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class T1Analysis {
     public ObservableList<QSItem> tableList = FXCollections.observableArrayList();
@@ -16,6 +17,8 @@ public class T1Analysis {
             Use static properties in QSList here.
             Hint: QSList.list is a static property.
          */
+        List <QSItem> tList = (List<QSItem>) QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year));
+        tableList = FXCollections.observableArrayList(tList);
     }
 
     ObservableList<QSItem> getTableList() {
