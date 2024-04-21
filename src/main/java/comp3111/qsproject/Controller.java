@@ -1,12 +1,14 @@
 package comp3111.qsproject;
 
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 import java.util.*;
@@ -158,22 +160,18 @@ public class Controller {
     @FXML
     public TableColumn<RecommendItem, String> t3RecentRank;
 
+    @FXML
+    public Label errorT3;
+
     ObservableList<String> yearList = FXCollections.observableArrayList("2017", "2018", "2019", "2020", "2021", "2022");
     ObservableList<String> stringPropertyList = FXCollections.observableArrayList("country", "region", "size", "type", "researchOutput");
 
     @FXML
-    private void initialize() {
+    public void initialize() {
         // Whole Program Information
         QSList.initialize();
         // T1
-        t1YearChoiceBox.setItems(yearList);
-        t1YearChoiceBox.setValue("2017");
-        t1PieChartChoiceBox.setItems(stringPropertyList);
-        t1PieChartChoiceBox.setValue("size");
-        t1PieChartLabel.setText("");
-        t1BarChartChoiceBox.setItems(stringPropertyList);
-        t1BarChartChoiceBox.setValue("type");
-        t1BarChartLabel.setText("");
+
         // T2
         /*
             Your Code Here.
@@ -213,13 +211,21 @@ public class Controller {
         xAxis2.setAutoRanging(true);
         xAxis2.setCategories(yearList);
         // T3
-        /*
-            Your Code Here.
-            1. Initialize the Choice boxes of type.
-            2. Initialize the Choice boxes of region.
-            3. For choice boxes of region,
-                you need to add a blank or "All" option representing selection of all the region.
-         */
+
+        ObservableList<String> sortedRegions = QSList.region;
+        sortedRegions.sort(Comparator.naturalOrder());
+        sortedRegions.add("All");
+        t3RegionChoiceBox.setItems(sortedRegions);
+        ObservableList<String> sortedTypes = FXCollections.observableArrayList();
+        sortedTypes.add("Private");
+        sortedTypes.add("Public");
+        t3TypeChoiceBox.setItems(sortedTypes);
+        t3University.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("name"));
+        t3BestYear.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("bestYear"));
+        t3BestRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("bestRank"));
+        t3RecentYear.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentYear"));
+        t3RecentRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentRank"));
+
     }
 
     @FXML
@@ -683,23 +689,241 @@ public class Controller {
     }
         @FXML
     private void T3_onClickClear() {
-        /*
-            Your Code Here.
-            Reset the Page Task 2.2. (including the text fields, choice boxes and the table view)
-         */
+            //set error label to be empty
+            errorT3.setText("");
+
+            //clear all the fields and choice boxes
+            t3TopRankTextField.clear();
+            t3BottomRankTextField.clear();
+            t3TypeChoiceBox.setValue(null);
+            t3RegionChoiceBox.setValue(null);
+
+            //clear data from table, bar chart and pie charts
+            if (t3TableView != null){
+                t3TableView.getItems().clear();
+            }
     }
 
     @FXML
     private void T3_onClickRecommend() {
-        /*
-            Your Code Here.
-            When click search on Task3:
-                1. Fetch the top and bottom boundary requirement of score.
-                2. Fetch the type and region requirements.
-                3. Clear previous data.
-                4. Make an Analyser.
-                5. Update the Table View.
-         */
+        // 1. Fetch the top and bottom boundary requirement of score.
+        String top_input = t3TopRankTextField.getText();
+        String bottom_input = t3BottomRankTextField.getText();
+
+        // 2. Fetch the type and region requirements.
+        String type = t3TypeChoiceBox.getValue();
+        String region = t3RegionChoiceBox.getValue();
+
+        // 3a. error handling for when one or both of the rank inputs are not integer
+        boolean isInput1Int = true;
+        boolean isInput2Int = true;
+        boolean error = false;
+        try{
+            int Top_input = Integer.parseInt(top_input);
+        }
+        catch(NumberFormatException e){
+            isInput1Int = false;
+        }
+        try{
+            int Bottom_input = Integer.parseInt(bottom_input);
+        }
+        catch(NumberFormatException e){
+            isInput2Int = false;
+        }
+
+        if (isInput1Int){
+            if (!isInput2Int) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                alert.setContentText("Please enter a positive integer for Bottom Rank");
+                error = true;
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            if (!isInput2Int){
+                alert.setContentText("Please enter a positive integer for Bottom Rank and Top Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter a positive integer for Bottom Rank and Top Rank");
+                error = true;
+            }
+            else{
+                alert.setContentText("Please enter a positive integer for Top Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter a positive integer for Top Rank");
+                error = true;
+            }
+        }
+
+        // 3b. error handling for when the ranks are non-positive
+        if (Integer.parseInt(top_input)<=0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            if (Integer.parseInt(bottom_input)<=0){
+                alert.setContentText("Please enter positive integer values for Bottom Rank and Top Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter positive integer values for Bottom Rank and Top Rank");
+                error = true;
+            }
+            else{
+                alert.setContentText("Please enter positive integer values for Top Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter positive integer values for Top Rank");
+                error = true;
+            }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            if (Integer.parseInt(bottom_input)<=0){
+                alert.setContentText("Please enter positive integer values for Bottom Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter positive integer values for Bottom Rank");
+                error = true;
+            }
+        }
+
+        //3c. error handling for when the text fields or the choice boxes are empty
+        if (top_input == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            if (bottom_input == null) {
+                if (type == null) {
+                    if (region == null) {
+                        alert.setContentText("Please Select Top Rank, Bottom Rank, Type and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank, Bottom Rank, Type and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Top Rank, Bottom Rank and Type");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank, Bottom Rank and Type");
+                        error = true;
+                    }
+                } else {
+                    if (region == null) {
+                        alert.setContentText("Please Select Top Rank, Bottom Rank and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank, Bottom Rank and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Top Rank and Bottom Rank");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank and Bottom Rank");
+                        error = true;
+                    }
+
+                }
+            } else {
+                if (type == null) {
+                    if (region.equals("")) {
+                        alert.setContentText("Please Select Top Rank, Type and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank, Type and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Top Rank and Type");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank and Type");
+                        error = true;
+                    }
+                } else {
+                    if (region == null) {
+                        alert.setContentText("Please Select Top Rank and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Top Rank");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Top Rank");
+                        error = true;
+                    }
+
+                }
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            if (bottom_input == null) {
+                if (type == null) {
+                    if (region.equals("")) {
+                        alert.setContentText("Please Select Bottom Rank, Type and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Bottom Rank, Type and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Bottom Rank and Type");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Bottom Rank and Type");
+                        error = true;
+                    }
+                } else {
+                    if (region == null) {
+                        alert.setContentText("Please Select Bottom Rank and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Bottom Rank and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Bottom Rank");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Bottom Rank");
+                        error = true;
+                    }
+
+                }
+            } else {
+                if (type == null) {
+                    if (region == null) {
+                        alert.setContentText("Please Select Type and Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Type and Region");
+                        error = true;
+                    } else {
+                        alert.setContentText("Please Select Type");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Type");
+                        error = true;
+                    }
+                } else {
+                    if (region == null) {
+                        alert.setContentText("Please Select Region");
+                        alert.showAndWait();
+                        errorT3.setText("Please Select Region");
+                        error = true;
+                    }
+                }
+            }
+        }
+
+        //3d. error handling for the case when top rank's value is higher thank bottom rank's value
+        if (Integer.parseInt(top_input) > Integer.parseInt(bottom_input)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
+            alert.setContentText("Please set Top rank's value to be lower than bottom rank's value");
+            alert.showAndWait();
+            errorT3.setText("Please set Top rank's value to be lower than bottom rank's value");
+            error = true;
+        }
+
+        if (!error) {
+            // 3. Clear previous data.
+            t3TableView.getItems().clear();
+
+            // 4. Make an Analyser.
+            T3Analysis analyser = new T3Analysis(top_input, bottom_input, type, region);
+
+            // 5. Update the Table View.
+            t3University.setCellValueFactory(new PropertyValueFactory<>("name"));
+            t3BestYear.setCellValueFactory(new PropertyValueFactory<>("bestYear"));
+            t3BestRank.setCellValueFactory(new PropertyValueFactory<>("bestRank"));
+            t3RecentYear.setCellValueFactory(new PropertyValueFactory<>("recentYear"));
+            t3RecentRank.setCellValueFactory(new PropertyValueFactory<>("recentRank"));
+
+            ObservableList<RecommendItem> recommendData = analyser.getRecommendData();
+            t3TableView.setItems(recommendData);
+        }
     }
 
 }
