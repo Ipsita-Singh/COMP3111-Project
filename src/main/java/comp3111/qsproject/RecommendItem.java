@@ -31,13 +31,11 @@ public class RecommendItem {
          */
         // Update the best rank and the corresponding year.
         if (Integer.parseInt(item.rank) < Integer.parseInt(this.getBestRank())) {
-            //System.out.print("hi");
             this.setBestRank(item.rank);
             this.setBestYear(item.year);
         }
         // Update the most recent year and the corresponding rank.
         if (Integer.parseInt(item.year) > Integer.parseInt(this.getRecentYear())) {
-            System.out.print("hi");
             this.setRecentYear(item.year);
             this.setRecentRank(item.rank);
         }

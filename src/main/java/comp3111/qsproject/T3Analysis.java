@@ -21,7 +21,6 @@ public class T3Analysis {
         // Iterate over the QSList
         int bottom = Integer.parseInt(bottom_input);
         int top = Integer.parseInt(top_input);
-        System.out.println(QSList.list.size());
 
         for (QSItem item : QSList.list) {
             // Convert the item's score to an integer
@@ -66,7 +65,6 @@ public class T3Analysis {
         }
 
         // Sort the RecommendList by bestRank
-        System.out.println(this.RecommendList.size());
         RecommendList.sort((item1, item2) -> Integer.compare(Integer.parseInt(item1.getBestRank()), Integer.parseInt(item2.getBestRank())));
 
     }
