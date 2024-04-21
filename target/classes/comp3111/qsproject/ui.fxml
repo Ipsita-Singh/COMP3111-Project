@@ -481,6 +481,7 @@
                               </TabPane>
                               <Button fx:id="T3ButtonComputeResults" layoutX="255.0" layoutY="219.0" mnemonicParsing="false" onAction="#T3_onClickRecommend" prefHeight="27.0" prefWidth="118.0" text="Recommend" />
                               <Button layoutX="398.0" layoutY="220.0" mnemonicParsing="false" onAction="#T3_onClickClear" text="Reset" />
+                              <Label fx:id="errorT3" alignment="CENTER" layoutX="210.0" layoutY="200.0" textAlignment="CENTER" textFill="RED" />
                            </children>
                         </AnchorPane>
                      </content>
