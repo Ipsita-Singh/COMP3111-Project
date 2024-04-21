@@ -966,6 +966,13 @@ public class Controller {
             t3RecentRank.setCellValueFactory(new PropertyValueFactory<>("recentRank"));
 
             ObservableList<RecommendItem> recommendData = analyser.getRecommendData();
+            if (recommendData.isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                alert.setContentText("No recommendation exists for the given inputs");
+                alert.showAndWait();
+                errorT3.setText("No recommendation exists for the given inputs");
+            }
             t3TableView.setItems(recommendData);
         }
     }
