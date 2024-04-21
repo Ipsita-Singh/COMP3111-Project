@@ -6,6 +6,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class T1Analysis {
     public ObservableList<QSItem> tableList = FXCollections.observableArrayList();
@@ -16,6 +17,8 @@ public class T1Analysis {
             Use static properties in QSList here.
             Hint: QSList.list is a static property.
          */
+        List <QSItem> tList = (List<QSItem>) QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year));
+        tableList = FXCollections.observableArrayList(tList);
     }
 
     ObservableList<QSItem> getTableList() {
@@ -36,6 +39,24 @@ public class T1Analysis {
                 key: "S", value: the Sum score of the Small size universities,
             ]
          */
+        Map<String, Double> scoreMap = new HashMap<>();
+
+        // Iterate over the tableList
+        for (QSItem item : tableList) {
+            // Get the attribute value based on searchName
+            String attributeValue = item.getProperty(searchName);
+            // Get the score of the item
+            Double score = Double.valueOf(item.getScore());
+            // Add the score to the corresponding attribute value in the map
+            scoreMap.put(attributeValue, scoreMap.getOrDefault(attributeValue, 0.0) + score);
+        }
+
+        // Convert the map to PieChart.Data and add to pieChartData
+        for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
+            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
+        }
+
+
         return pieChartData;
     }
 
