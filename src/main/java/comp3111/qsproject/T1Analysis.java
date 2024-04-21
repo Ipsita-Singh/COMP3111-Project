@@ -17,7 +17,7 @@ public class T1Analysis {
             Use static properties in QSList here.
             Hint: QSList.list is a static property.
          */
-        List <QSItem> tList = (List<QSItem>) QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year));
+        List <QSItem> tList = QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year)).collect(Collectors.toList());
         tableList = FXCollections.observableArrayList(tList);
     }
 
@@ -74,6 +74,24 @@ public class T1Analysis {
                 key: "S", value: the Average score of the Small size universities,
             ]
          */
+        Map<String, Double> scoreMap = new HashMap<>();
+
+        // Iterate over the tableList
+        for (QSItem item : tableList) {
+            // Get the attribute value based on searchName
+            String attributeValue = item.getProperty(searchName);
+            // Get the score of the item
+            Double score = Double.valueOf(item.getScore());
+            // Add the score to the corresponding attribute value in the map
+            scoreMap.put(attributeValue, scoreMap.getOrDefault(attributeValue, 0.0) + score);
+        }
+
+        // Convert the map to PieChart.Data and add to pieChartData
+        for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
+            barData.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+        }
+
+
         return barData;
     }
 
