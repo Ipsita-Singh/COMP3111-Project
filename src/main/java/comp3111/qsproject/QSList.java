@@ -21,6 +21,10 @@ public class QSList {
     public static ObservableList<String> region = FXCollections.observableArrayList();
     public static ObservableList<String> country = FXCollections.observableArrayList();
 
+    /**
+     * Finding QS data path, initializing and processing the data and finally, assigning the data
+     * @author Shriyan Shekhar
+     */
     public static void initialize() {
         try {
             list = CSVToList("qs.csv");
@@ -36,6 +40,13 @@ public class QSList {
          */
     }
 
+    /**
+     * Converts and processes a CSV file to a list of QSItems objects.
+     * @author Shriyan Shekhar
+     * @param filePath Path to the CSV file
+     * @return An ObservableList of QSItem objects reflecting the data from the CSV file.
+     * @throws IOException If I/O error occurs while reading the CSV file.
+     */
     private static ObservableList<QSItem> CSVToList(String filePath) throws IOException {
         ObservableList<QSItem> dataList = FXCollections.observableArrayList();;
 
@@ -65,6 +76,11 @@ public class QSList {
         return dataList;
     }
 
+    /**
+     * Collects unique values from the list of QSItem Objects
+     * Processes it for university, type, region and country attributes.
+     * @author Shriyan Shekhar
+     */
     private static void collectData() {
 
 

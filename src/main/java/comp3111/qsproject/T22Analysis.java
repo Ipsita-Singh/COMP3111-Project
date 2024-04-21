@@ -13,6 +13,17 @@ public class T22Analysis {
     private String CountryRegion1Name;
     private String CountryRegion2Name;
 
+    /**
+     * Constructor for T22Analysis.
+     * Filters the QSList based on the provided country/region names or "All" and years,
+     * sorts the filtered data by year, and creates observable lists for each country/region.
+     * Assigns the sorted observable lists to teh first country/region list (CountryRegion1List) and second country/region  list (CountryRegion2List) respectively
+     * Assigns the name of the country/region to the respective strings
+     * @author Shriyan Shekhar
+     * @param country_region_1 The name of the first country/region.
+     * @param country_region_2 The name of the second country/region.
+     * @param years A list of years to filter the QSList by.
+     */
     T22Analysis(String country_region_1, String country_region_2, List<String> years) {
         List<QSItem> country1 = QSList.list.stream()
                 .filter(qsItem -> (qsItem.getCountry().equals(country_region_1) || qsItem.getRegion().equals(country_region_1)) && years.contains(qsItem.getYear()))
@@ -43,6 +54,14 @@ public class T22Analysis {
 
     }
 
+    /**
+     * Fetches the respective data based on searchName
+     * Calculates the average of the list given according to the property selected by searchName.
+     * @author Shriyan Shekhar
+     * @param CountryList The list of QSItem objects representing one country/region's data
+     * @param searchName The name of the property required for calculation
+     * @return The average value of the specified property in the QSItem object or returns 0.0 if list is empty or null.
+     */
     public double calculate (ObservableList<QSItem> CountryList , String searchName){
         double sum = 0.0;
         double length = 0.0;
@@ -82,6 +101,13 @@ public class T22Analysis {
 
         return sum / length;
     }
+
+    /**
+     * Retrieves Bar Chart Data for a property (given by searchName) in the two country/region data.
+     * @author Shriyan Shekhar
+     * @param searchName Name of the property to be retrieved for bar chart data
+     * @return A series of bar chart data points in which each point represents the average value of the property.
+     */
     XYChart.Series<Double, String> getBarChartData(String searchName) {
         XYChart.Series<Double, String> barData= new XYChart.Series<>();
         double countryAverage1 = calculate (CountryRegion1List, searchName);
@@ -93,6 +119,12 @@ public class T22Analysis {
         return barData;
     }
 
+    /**
+     * Retrieves Line Chart Data for a property (given by searchName) in the two country/region data.
+     * @author Shriyan Shekhar
+     * @param searchName Name of the property to be retrieved for line chart data
+     * @return A list of series of line chart data points in which each point has a year and the average value of the property of the country/region.
+     */
     List<XYChart.Series<String, Double>> getLineChartData(String searchName) {
         List<XYChart.Series<String, Double>> lineData = new ArrayList<>();
         XYChart.Series<String, Double> series1 = new XYChart.Series<>();

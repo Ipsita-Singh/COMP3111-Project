@@ -223,7 +223,7 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="31.0" legendVisible="false" prefHeight="323.0" prefWidth="697.0">
+                                                                  <BarChart fx:id="t21OverallBarChart" layoutX="-2.0" layoutY="45.0" legendVisible="false" prefHeight="309.0" prefWidth="697.0">
                                                                      <xAxis>
                                                                         <NumberAxis prefWidth="656.0" />
                                                                      </xAxis>
@@ -235,6 +235,11 @@
                                                                      </yAxis>
                                                                   </BarChart>
                                                                   <ComboBox fx:id="FieldSelect" layoutX="14.0" layoutY="14.0" onAction="#HandleCombo" prefWidth="150.0" />
+                                                                  <Label fx:id="ChartTitle1" alignment="CENTER" layoutX="186.0" layoutY="25.0" prefHeight="28.0" prefWidth="392.0" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Label>
                                                                </children>
                                                             </AnchorPane>
                                                          </content>
@@ -338,7 +343,7 @@
                                                          <content>
                                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                <children>
-                                                                  <BarChart fx:id="t22OverallBarChart" layoutX="-5.0" layoutY="29.0" legendVisible="false" prefHeight="323.0" prefWidth="701.0">
+                                                                  <BarChart fx:id="t22OverallBarChart" layoutX="-5.0" layoutY="46.0" legendVisible="false" prefHeight="306.0" prefWidth="701.0">
                                                                      <xAxis>
                                                                         <NumberAxis prefWidth="653.0">
                                                                            <tickLabelFont>
@@ -350,6 +355,11 @@
                                                                      </yAxis>
                                                                   </BarChart>
                                                                   <ComboBox fx:id="FieldSelect2" layoutX="14.0" layoutY="14.0" onAction="#HandleCombo2" prefWidth="150.0" />
+                                                                  <Label fx:id="ChartTitle2" alignment="CENTER" layoutX="185.0" layoutY="25.0" prefHeight="28.0" prefWidth="392.0" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </Label>
                                                                </children>
                                                             </AnchorPane>
                                                          </content>
