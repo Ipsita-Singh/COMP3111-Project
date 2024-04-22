@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Initial Testing for Task2.1 and Task2.2">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/RecommendItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/RecommendItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T3Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T3Analysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/RecommendItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/RecommendItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T3Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T3Analysis.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,13 +399,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge Commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>comp3111.qsproject.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest.ic" NAME="RecommendItemTest Coverage Results" MODIFIED="1713401532982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111Testing$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713697692675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/COMP3111Testing$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713779407955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>comp3111.qsproject.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
   </component>
