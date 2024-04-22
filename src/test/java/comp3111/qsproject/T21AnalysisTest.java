@@ -64,6 +64,7 @@ class T21AnalysisTest {
 
     @Test
     void getBarInvalidUniversity() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
 
@@ -88,6 +89,7 @@ class T21AnalysisTest {
 
     @Test
     void getBarInvalidYear() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2025");
         years.add("2023");
@@ -113,6 +115,7 @@ class T21AnalysisTest {
 
     @Test
     void getBarInvalidSearchName() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
 
@@ -136,6 +139,7 @@ class T21AnalysisTest {
 
     @Test
     void getBarChart() {
+        QSList.initialize();
         double BostonData = 2642.0;
         double AstonData = 730.0;
 
@@ -166,6 +170,7 @@ class T21AnalysisTest {
 
     @Test
     void getLineChartData() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2020");
@@ -209,6 +214,7 @@ class T21AnalysisTest {
 
     @Test
     void getLineInvalidYear1() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2023");
         years.add("2024");
@@ -244,6 +250,7 @@ class T21AnalysisTest {
 
     @Test
     void getLineInvalidYear2() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2023");
         years.add("2017");
@@ -290,6 +297,7 @@ class T21AnalysisTest {
 
     @Test
     void getLineInvalidSearchName() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2018");
@@ -327,6 +335,7 @@ class T21AnalysisTest {
 
     @Test
     void getLineInvalidUniversities() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2018");
         years.add("2021");
