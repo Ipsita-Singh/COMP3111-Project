@@ -731,6 +731,11 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Clears all the text fields, choice boxes, error messages and table data for the tab task3
+     * @author Ipsita Sanjay SINGH
+     */
         @FXML
     private void T3_onClickClear() {
             //set error label to be empty
@@ -748,6 +753,13 @@ public class Controller {
             }
     }
 
+    /**
+     * Retrieves all the user inputs and checks whether all the inputs or not. If not, relevant errors are raised.
+     * If all the conditions are met then an analyser is created.
+     * If the recommendation list is not empty, then the table is updated with the recommendation list.
+     * If it's empty, an error message is raised.
+     * @author Ipsita Sanjay SINGH
+     */
     @FXML
     private void T3_onClickRecommend() {
         // 1. Fetch the top and bottom boundary requirement of score.
@@ -954,7 +966,7 @@ public class Controller {
         if (!error) {
             // 3. Clear previous data.
             t3TableView.getItems().clear();
-
+            errorT3.setText("");
             // 4. Make an Analyser.
             T3Analysis analyser = new T3Analysis(top_input, bottom_input, type, region);
 
@@ -969,9 +981,9 @@ public class Controller {
             if (recommendData.isEmpty()){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Alert!");
-                alert.setContentText("No recommendation exists for the given inputs");
+                alert.setContentText("No recommendation exists for the given inputs. Please input different criterion.");
                 alert.showAndWait();
-                errorT3.setText("No recommendation exists for the given inputs");
+                errorT3.setText("No recommendation exists for the given inputs, Please input different criterion.");
             }
             t3TableView.setItems(recommendData);
         }
