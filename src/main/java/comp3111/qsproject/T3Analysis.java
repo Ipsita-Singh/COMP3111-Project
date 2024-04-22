@@ -8,9 +8,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class T3Analysis {
     public ObservableList<RecommendItem> RecommendList = FXCollections.observableArrayList();
 
+    /**
+     * Constructor for T3Analysis class
+     * Traverses through every item in the QSList.list and if the attribute values of the item satisfy the
+     * criterion set by the user (i.e. the rank of uni in the list is not higher than top_input and not lower than
+     * low_input and matches the type and region inputted by the user), then the recommendList is traversed to
+     * check whether the university already exists in the recommendList. If it does, then the item in the
+     * recommendList is updated by calling update(). Otherwise, the university is added to the recommendList
+     * so it can be updated later on.Finally, the RecommendList is sorted by best rank.
+     * @author Ipsita Sanjay SINGH
+     * @param top_input The top rank
+     * @param bottom_input The bottom rank
+     * @param type The type of the university (Private or Public)
+     * @param region The region of university
+     */
     T3Analysis (String top_input, String bottom_input, String type, String region) {
         /*
             Your Code Here.
@@ -69,9 +84,14 @@ public class T3Analysis {
 
     }
 
+    /** Retrieves the Recommendation List, which contains all the universities from QSList.list which
+     * satisfy the user inputted criterion.
+     * @author Ipsita Sanjay SINGH
+     * @return RecommendList, which is the list of universities, their best rank, year of best rank,
+     * most recent rank, and the year of the most recent rank satisfying the criterion inputted by the user.
+     */
     ObservableList<RecommendItem> getRecommendData() {
         // Show the most valuable university
-        System.out.println(this.RecommendList.size());
         return RecommendList;
     }
 }
