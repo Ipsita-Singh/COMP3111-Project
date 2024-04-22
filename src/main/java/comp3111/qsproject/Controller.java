@@ -177,14 +177,6 @@ public class Controller {
         // T1
 
         // T2
-        /*
-            Your Code Here.
-            1. Initialize the Choice boxes of university.
-            2. Initialize the Choice boxes of country/region.
-            3. For choice boxes of country/region,
-                you need to add a blank or "All" option representing selection of all the country/region.
-         */
-        //t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
         ObservableList<String> sortedUniversity = QSList.university;
         sortedUniversity.sort(Comparator.naturalOrder());
         t2University1ChoiceBox.setItems(sortedUniversity);
@@ -261,10 +253,7 @@ public class Controller {
      */
     @FXML
     private void T21_onClickClear() {
-        /*
-            Your Code Here.
-            Reset the Page Task 2.1. (including the choice boxes, check boxes and charts)
-         */
+
         //clear Universities and Combo Box
         t2University1ChoiceBox.setValue(null);
         t2University2ChoiceBox.setValue(null);
@@ -528,10 +517,7 @@ public class Controller {
         t22OverallBarChart.getData().clear();
         t22OverallBarChart.getXAxis().setLabel ("");
         t22LineChart.getData().clear();
-        /*
-            Your Code Here.
-            Reset the Page Task 2.2. (including the choice boxes, check boxes and charts)
-         */
+
     }
 
     /**
@@ -673,20 +659,6 @@ public class Controller {
             xAxis2.setCategories(categories);
             t22LineChart.setTitle("Average Score over Time");
         }
-
-
-
-
-        /*
-            Your Code Here.
-            When click search on Task2.2:
-                1. Fetch the two country/region from the choice box.
-                2. Fetch the selected years.
-                3. Clear previous data.
-                4. Make an Analyser.
-                5. Update the Bar Charts, which shows the average of selected property.
-                6. Update the line Chart, which shows two lines of score of each year.
-         */
     }
 
     /**

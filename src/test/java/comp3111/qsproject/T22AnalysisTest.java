@@ -69,6 +69,7 @@ class T22AnalysisTest {
 
     @Test
     void getBarInvalidCountry() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
 
@@ -93,6 +94,7 @@ class T22AnalysisTest {
 
     @Test
     void getBarInvalidYear() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2025");
         years.add("2023");
@@ -118,6 +120,7 @@ class T22AnalysisTest {
 
     @Test
     void getBarInvalidSearchName() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
 
@@ -141,6 +144,7 @@ class T22AnalysisTest {
 
     @Test
     void getBarChart() {
+        QSList.initialize();
         double calculatedExcelAll = 6368256.0 / 2393.0;
         double IndiaData = 29460.0 / 41.0;
 
@@ -171,6 +175,7 @@ class T22AnalysisTest {
 
     @Test
     void getLineChartData() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2018");
@@ -216,6 +221,7 @@ class T22AnalysisTest {
 
     @Test
     void getLineInvalidYear1() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2023");
         years.add("2024");
@@ -251,6 +257,7 @@ class T22AnalysisTest {
 
     @Test
     void getLineInvalidYear2() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2018");
@@ -297,6 +304,7 @@ class T22AnalysisTest {
 
     @Test
     void getLineInvalidSearchName() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2018");
@@ -342,6 +350,7 @@ class T22AnalysisTest {
 
     @Test
     void getLineInvalidCountries() {
+        QSList.initialize();
         List<String> years = new ArrayList<>();
         years.add("2017");
         years.add("2018");
