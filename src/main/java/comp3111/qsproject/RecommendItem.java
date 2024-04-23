@@ -37,7 +37,7 @@ public class RecommendItem {
      * @author Ipsita Sanjay SINGH
      */
     void update(QSItem item) {
-        assert (item.name==(this.getName()));
+        assert (item.name.equals(this.getName()));
         /*
             Your Code Here.
             This function update the information from other QSItem.
