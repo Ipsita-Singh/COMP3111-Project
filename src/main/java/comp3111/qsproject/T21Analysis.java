@@ -50,6 +50,10 @@ public class T21Analysis {
         double sum = 0.0;
         double length = 0.0;
 
+        if (searchName == null){
+            return sum;
+        }
+
 
         for (QSItem qsItem: UniversityList) {
             String scoreString = "";
@@ -58,10 +62,17 @@ public class T21Analysis {
             if (scoreString == null){
                 continue;
             }
+            else if (scoreString.isEmpty()){
+                continue;
+            }
 
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
-            scoreString = scoreString.replaceAll("\\.", "");
+
+            if (searchName.equals("score") == false){
+                scoreString = scoreString.replaceAll("\\.", "");
+            }
+
 
 
             double summation;
@@ -76,6 +87,8 @@ public class T21Analysis {
 
             length++;
         }
+
+
         if (length == 0.0){
             return sum;
         }
@@ -94,9 +107,9 @@ public class T21Analysis {
         double displayAverage1 = calculate (University1List, searchName);
         double displayAverage2 = calculate (University2List, searchName);
 
-
-        barData.getData().add(new XYChart.Data<>(displayAverage1, University1Name));
         barData.getData().add(new XYChart.Data<>(displayAverage2, University2Name));
+        barData.getData().add(new XYChart.Data<>(displayAverage1, University1Name));
+
 
 
         return barData;
@@ -115,6 +128,12 @@ public class T21Analysis {
         series1.setName(University1Name);
         series2.setName(University2Name);
 
+        if (searchName == null){
+            lineData.add(series1);
+            lineData.add(series2);
+            return lineData;
+        }
+
         for (QSItem qsItem: University1List) {
             String year = qsItem.getYear();
             String scoreString = qsItem.getProperty(searchName);
@@ -128,7 +147,10 @@ public class T21Analysis {
 
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
-            scoreString = scoreString.replaceAll("\\.", "");
+
+            if (searchName.equals("score") == false){
+                scoreString = scoreString.replaceAll("\\.", "");
+            }
 
 
             double score;
@@ -153,7 +175,10 @@ public class T21Analysis {
             }
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
-            scoreString = scoreString.replaceAll("\\.", "");
+
+            if (searchName.equals("score") == false){
+                scoreString = scoreString.replaceAll("\\.", "");
+            }
 
 
             double score;
