@@ -27,7 +27,7 @@ class T22AnalysisTest {
 
         ObservableList<QSItem> CountryRegion1List = FXCollections.observableArrayList(country1);
         T22Analysis t22Analysis = new T22Analysis("Estonia", "Estonia", years);
-        double expectedScore = (336.0 + 363.0 + 328.0) / 3.0;
+        double expectedScore = (33.6 + 36.3 + 32.8) / 3.0;
         double actualScore = t22Analysis.calculate(CountryRegion1List, "score");
         assertEquals(expectedScore, actualScore);
     }
@@ -45,7 +45,7 @@ class T22AnalysisTest {
                 .collect(Collectors.toList());
         ObservableList<QSItem> CountryRegion1List = FXCollections.observableArrayList(country1);
         T22Analysis t22Analysis = new T22Analysis("Japan", "Estonia", years);
-        double actual = t22Analysis.calculate(CountryRegion1List, "random");
+        double actual = t22Analysis.calculate(CountryRegion1List, "wrongSearchName");
         double expected = 0.0;
         assertEquals(actual, expected);
     }
@@ -124,10 +124,9 @@ class T22AnalysisTest {
         List<String> years = new ArrayList<>();
         years.add("2017");
 
-        String searchName = "wrongSearchName";
 
         T22Analysis t22Analysis = new T22Analysis("Estonia", "India", years);
-        XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(searchName);
+        XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(null);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
         expected.getData().add(new XYChart.Data<>(0.0, "Estonia"));
@@ -180,11 +179,11 @@ class T22AnalysisTest {
         years.add("2017");
         years.add("2018");
 
-        double SouthKorea2017 = (821.0 + 779.0 + 67.0 + 628.0 + 615.0 + 605.0 + 506.0 + 392.0 + 345.0 + 343.0 + 309.0) / 11.0;
-        double SouthKorea2018 = (815.0 + 804.0 + 694.0 + 655.0 + 623.0 + 615.0 + 532.0 + 406.0 + 377.0 + 347.0 + 306.0) / 11.0;
+        double SouthKorea2017 = (82.1 + 77.9 + 67.0 + 62.8 + 61.5 + 60.5 + 50.6 + 39.2 + 34.5 + 34.3 + 30.9) / 11.0;
+        double SouthKorea2018 = (81.5 + 80.4 + 69.4 + 65.5 + 62.3 + 61.5 + 53.2 + 40.6 + 37.7 + 34.7 + 30.6) / 11.0;
 
-        double Austria2017 = (533.0 + 488.0 + 369.0) / 3.0;
-        double Austria2018 = (533.0 + 495.0 + 385.0) / 3.0;
+        double Austria2017 = (53.3 + 48.8 + 36.9) / 3.0;
+        double Austria2018 = (53.3 + 49.5 + 38.5) / 3.0;
 
         String searchName = "score";
         T22Analysis t22Analysis = new T22Analysis("South Korea", "Austria", years);
@@ -263,11 +262,11 @@ class T22AnalysisTest {
         years.add("2018");
         years.add("2023"); //Added Invalid Year
 
-        double SouthKorea2017 = (821.0 + 779.0 + 67.0 + 628.0 + 615.0 + 605.0 + 506.0 + 392.0 + 345.0 + 343.0 + 309.0) / 11.0;
-        double SouthKorea2018 = (815.0 + 804.0 + 694.0 + 655.0 + 623.0 + 615.0 + 532.0 + 406.0 + 377.0 + 347.0 + 306.0) / 11.0;
+        double SouthKorea2017 = (82.1 + 77.9 + 67.0 + 62.8 + 61.5 + 60.5 + 50.6 + 39.2 + 34.5 + 34.3 + 30.9) / 11.0;
+        double SouthKorea2018 = (81.5 + 80.4 + 69.4 + 65.5 + 62.3 + 61.5 + 53.2 + 40.6 + 37.7 + 34.7 + 30.6) / 11.0;
 
-        double Austria2017 = (533.0 + 488.0 + 369.0) / 3.0;
-        double Austria2018 = (533.0 + 495.0 + 385.0) / 3.0;
+        double Austria2017 = (53.3 + 48.8 + 36.9) / 3.0;
+        double Austria2018 = (53.3 + 49.5 + 38.5) / 3.0;
 
         String searchName = "score";
         T22Analysis t22Analysis = new T22Analysis("South Korea", "Austria", years);
