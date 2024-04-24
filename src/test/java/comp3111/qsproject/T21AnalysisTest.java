@@ -74,8 +74,8 @@ class T21AnalysisTest {
         XYChart.Series<Double, String> barchart = t21Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "c1"));
         expected.getData().add(new XYChart.Data<>(0.0, "c2"));
+        expected.getData().add(new XYChart.Data<>(0.0, "c1"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -101,8 +101,8 @@ class T21AnalysisTest {
         XYChart.Series<Double, String> barchart = t21Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "Cornell University"));
         expected.getData().add(new XYChart.Data<>(0.0, "Brown University"));
+        expected.getData().add(new XYChart.Data<>(0.0, "Cornell University"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -125,8 +125,8 @@ class T21AnalysisTest {
         XYChart.Series<Double, String> barchart = t21Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "Charles University"));
         expected.getData().add(new XYChart.Data<>(0.0, "Johns Hopkins University"));
+        expected.getData().add(new XYChart.Data<>(0.0, "Charles University"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -156,8 +156,8 @@ class T21AnalysisTest {
         XYChart.Series<Double, String> barchart = t21Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(AstonData, "Aston University"));
         expected.getData().add(new XYChart.Data<>(BostonData, "Boston University"));
+        expected.getData().add(new XYChart.Data<>(AstonData, "Aston University"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
