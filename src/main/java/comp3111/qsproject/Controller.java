@@ -185,14 +185,6 @@ public class Controller {
         t1BarChartChoiceBox.setValue("country");
         t1BarChartLabel.setText("");
         // T2
-        /*
-            Your Code Here.
-            1. Initialize the Choice boxes of university.
-            2. Initialize the Choice boxes of country/region.
-            3. For choice boxes of country/region,
-                you need to add a blank or "All" option representing selection of all the country/region.
-         */
-        //t2University1ChoiceBox.setItems(FXCollections.observableArrayList("Amherst", "United", "HKUST"));
         ObservableList<String> sortedUniversity = QSList.university;
         sortedUniversity.sort(Comparator.naturalOrder());
         t2University1ChoiceBox.setItems(sortedUniversity);
@@ -317,10 +309,7 @@ public class Controller {
      */
     @FXML
     private void T21_onClickClear() {
-        /*
-            Your Code Here.
-            Reset the Page Task 2.1. (including the choice boxes, check boxes and charts)
-         */
+
         //clear Universities and Combo Box
         t2University1ChoiceBox.setValue(null);
         t2University2ChoiceBox.setValue(null);
@@ -584,10 +573,7 @@ public class Controller {
         t22OverallBarChart.getData().clear();
         t22OverallBarChart.getXAxis().setLabel ("");
         t22LineChart.getData().clear();
-        /*
-            Your Code Here.
-            Reset the Page Task 2.2. (including the choice boxes, check boxes and charts)
-         */
+
     }
 
     /**
@@ -729,20 +715,6 @@ public class Controller {
             xAxis2.setCategories(categories);
             t22LineChart.setTitle("Average Score over Time");
         }
-
-
-
-
-        /*
-            Your Code Here.
-            When click search on Task2.2:
-                1. Fetch the two country/region from the choice box.
-                2. Fetch the selected years.
-                3. Clear previous data.
-                4. Make an Analyser.
-                5. Update the Bar Charts, which shows the average of selected property.
-                6. Update the line Chart, which shows two lines of score of each year.
-         */
     }
 
     /**
@@ -787,6 +759,11 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Clears all the text fields, choice boxes, error messages and table data for the tab task3
+     * @author Ipsita Sanjay SINGH
+     */
         @FXML
     private void T3_onClickClear() {
             //set error label to be empty
@@ -804,6 +781,13 @@ public class Controller {
             }
     }
 
+    /**
+     * Retrieves all the user inputs and checks whether all the inputs or not. If not, relevant errors are raised.
+     * If all the conditions are met then an analyser is created.
+     * If the recommendation list is not empty, then the table is updated with the recommendation list.
+     * If it's empty, an error message is raised.
+     * @author Ipsita Sanjay SINGH
+     */
     @FXML
     private void T3_onClickRecommend() {
         // 1. Fetch the top and bottom boundary requirement of score.
@@ -1010,7 +994,7 @@ public class Controller {
         if (!error) {
             // 3. Clear previous data.
             t3TableView.getItems().clear();
-
+            errorT3.setText("");
             // 4. Make an Analyser.
             T3Analysis analyser = new T3Analysis(top_input, bottom_input, type, region);
 
@@ -1022,6 +1006,13 @@ public class Controller {
             t3RecentRank.setCellValueFactory(new PropertyValueFactory<>("recentRank"));
 
             ObservableList<RecommendItem> recommendData = analyser.getRecommendData();
+            if (recommendData.isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                alert.setContentText("No recommendation exists for the given inputs. Please input different criterion.");
+                alert.showAndWait();
+                errorT3.setText("No recommendation exists for the given inputs, Please input different criterion.");
+            }
             t3TableView.setItems(recommendData);
         }
     }

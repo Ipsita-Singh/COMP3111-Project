@@ -66,6 +66,9 @@ public class T22Analysis {
         double sum = 0.0;
         double length = 0.0;
 
+        if (searchName == null){
+            return sum;
+        }
 
         for (QSItem qsItem: CountryList) {
             String scoreString = "";
@@ -80,7 +83,10 @@ public class T22Analysis {
 
             scoreString = scoreString.replaceAll(",", "");
             scoreString = scoreString.replaceAll("\"", "");
-            scoreString = scoreString.replaceAll("\\.", "");
+
+            if (!Objects.equals(searchName, "score")){
+                scoreString = scoreString.replaceAll("\\.", "");
+            }
 
 
             double summation;
@@ -113,8 +119,9 @@ public class T22Analysis {
         double countryAverage1 = calculate (CountryRegion1List, searchName);
         double countryAverage2 = calculate (CountryRegion2List, searchName);
 
-        barData.getData().add(new XYChart.Data<>(countryAverage1, CountryRegion1Name));
+
         barData.getData().add(new XYChart.Data<>(countryAverage2, CountryRegion2Name));
+        barData.getData().add(new XYChart.Data<>(countryAverage1, CountryRegion1Name));
 
         return barData;
     }

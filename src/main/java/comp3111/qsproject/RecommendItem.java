@@ -13,6 +13,13 @@ public class RecommendItem {
 
     private SimpleStringProperty recentRank;
 
+    /**
+     * Constructor of RecommendItem class
+     * Initialises the name, year of best rank (bestYear), best rank, recent rank and year of recent rank
+     * (recentYear) using the input QSItem object.
+     * @param item This is the university in QSItem
+     * @author Ipsita Sanjay SINGH
+     */
     RecommendItem(QSItem item) {
         this.name = new SimpleStringProperty(item.name);
         this.bestYear = new SimpleStringProperty(item.year);
@@ -21,6 +28,14 @@ public class RecommendItem {
         this.recentRank = new SimpleStringProperty(item.rank);
     }
 
+    /**
+     * Checks if the name of the input university is the same as the one calling the update function.
+     * If it is, then if the rank of the input university is higher than the best rank, best rank and corresponding year
+     * are updated.
+     * If the year of ranking of input university is more recent, then recent rank and corresponding year are updated.
+     * @param item
+     * @author Ipsita Sanjay SINGH
+     */
     void update(QSItem item) {
         assert (item.name==(this.getName()));
         /*
@@ -31,13 +46,11 @@ public class RecommendItem {
          */
         // Update the best rank and the corresponding year.
         if (Integer.parseInt(item.rank) < Integer.parseInt(this.getBestRank())) {
-            //System.out.print("hi");
             this.setBestRank(item.rank);
             this.setBestYear(item.year);
         }
         // Update the most recent year and the corresponding rank.
         if (Integer.parseInt(item.year) > Integer.parseInt(this.getRecentYear())) {
-            System.out.print("hi");
             this.setRecentYear(item.year);
             this.setRecentRank(item.rank);
         }
