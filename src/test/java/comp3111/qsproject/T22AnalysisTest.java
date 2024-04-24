@@ -79,8 +79,8 @@ class T22AnalysisTest {
         XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "c1"));
         expected.getData().add(new XYChart.Data<>(0.0, "c2"));
+        expected.getData().add(new XYChart.Data<>(0.0, "c1"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -106,8 +106,8 @@ class T22AnalysisTest {
         XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "North America"));
         expected.getData().add(new XYChart.Data<>(0.0, "Europe"));
+        expected.getData().add(new XYChart.Data<>(0.0, "North America"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -129,8 +129,8 @@ class T22AnalysisTest {
         XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(null);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(0.0, "Estonia"));
         expected.getData().add(new XYChart.Data<>(0.0, "India"));
+        expected.getData().add(new XYChart.Data<>(0.0, "Estonia"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
@@ -160,8 +160,8 @@ class T22AnalysisTest {
         XYChart.Series<Double, String> barchart = t22Analysis.getBarChartData(searchName);
         XYChart.Series<Double, String> expected = new XYChart.Series<>();
 
-        expected.getData().add(new XYChart.Data<>(calculatedExcelAll, "All"));
         expected.getData().add(new XYChart.Data<>(IndiaData, "India"));
+        expected.getData().add(new XYChart.Data<>(calculatedExcelAll, "All"));
 
         assertEquals(expected.getData().size(), barchart.getData().size());
         for (int i = 0; i < expected.getData().size(); i++) {
