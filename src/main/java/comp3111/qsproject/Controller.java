@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 
 
 import java.util.*;
@@ -178,7 +179,14 @@ public class Controller {
         // Whole Program Information
         QSList.initialize();
         // T1
-
+        t1YearChoiceBox.setItems(yearList);
+        t1YearChoiceBox.setValue("2017");
+        t1PieChartChoiceBox.setItems(stringPropertyList);
+        t1PieChartChoiceBox.setValue("country");
+        t1PieChartLabel.setText("");
+        t1BarChartChoiceBox.setItems(stringPropertyList);
+        t1BarChartChoiceBox.setValue("country");
+        t1BarChartLabel.setText("");
         // T2
         ObservableList<String> sortedUniversity = QSList.university;
         sortedUniversity.sort(Comparator.naturalOrder());
@@ -249,6 +257,54 @@ public class Controller {
                 6. Update the Bar Chart, which shows the average score of selected property (t1BarChartChoiceBox).
             Please notice that we need listeners for monitoring the changes of choice box in pie chart and bar chart.
          */
+
+        //Fetching year from choice box
+        String year = t1YearChoiceBox.getValue();
+
+        //Clearing previous data
+
+        //Making an analyser
+        T1Analysis T1analyser = new T1Analysis(year);
+
+        //Updating Table view
+        t1University.setCellValueFactory(new PropertyValueFactory<>("name"));
+        t1Country.setCellValueFactory(new PropertyValueFactory<>("country"));
+        t1City.setCellValueFactory(new PropertyValueFactory<>("city"));
+        t1Score.setCellValueFactory(new PropertyValueFactory<>("score"));
+        t1Rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        t1Type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        t1DataTable.setItems(T1analyser.getTableList());
+
+        //Updating Pie Chart view
+        t1PieChart.setData(T1analyser.getPieChartData(t1PieChartChoiceBox.getValue()));
+
+        //Setting the title of the Pie chart
+        t1PieChart.setTitle(t1PieChartChoiceBox.getValue() + " & score");
+
+        //setting the direction to arrange the data
+        t1PieChart.setClockwise(true);
+
+        //Setting the length of the label line
+        t1PieChart.setLabelLineLength(50);
+
+        //Setting the labels of the pie chart visible
+        t1PieChart.setLabelsVisible(true);
+
+        //Setting the start angle of the pie chart
+        t1PieChart.setStartAngle(180);
+
+        //Updating the bar chart view
+        t1BarChart.getData().removeAll();
+        t1BarChart.getData().add(T1analyser.getBarChartData(t1BarChartChoiceBox.getValue()));
+
+
+        //Setting the title of the Bar chart
+        t1BarChart.setTitle(t1BarChartChoiceBox.getValue() + " & score");
+
+        //Setting font size of X axis labels
+        t1BarChart.getXAxis().tickLabelFontProperty().set(Font.font("-fx-font-size: " + 10 + "px;"));
+
+
     }
 
     /**
