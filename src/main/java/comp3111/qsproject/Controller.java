@@ -165,6 +165,9 @@ public class Controller {
     public TableColumn<RecommendItem, String> t3RecentRank;
 
     @FXML
+    public TableColumn<RecommendItem, String> t3link;
+
+    @FXML
     public Label errorT3;
 
     ObservableList<String> yearList = FXCollections.observableArrayList("2017", "2018", "2019", "2020", "2021", "2022");
@@ -213,6 +216,7 @@ public class Controller {
         sortedRegions.add("All");
         t3RegionChoiceBox.setItems(sortedRegions);
         ObservableList<String> sortedTypes = FXCollections.observableArrayList();
+        sortedTypes.add("All");
         sortedTypes.add("Private");
         sortedTypes.add("Public");
         t3TypeChoiceBox.setItems(sortedTypes);
@@ -221,7 +225,7 @@ public class Controller {
         t3BestRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("bestRank"));
         t3RecentYear.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentYear"));
         t3RecentRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentRank"));
-
+        t3University.setResizable(true);
     }
 
     @FXML

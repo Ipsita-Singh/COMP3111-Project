@@ -51,39 +51,79 @@ public class T3Analysis {
             for (QSItem item : QSList.list) {
                 // Convert the item's score to an integer
                 int itemScore = Integer.parseInt(item.getRank());
-                if (!region.equals("All")) {
-                    // Check if the item fits the score range, type, and region
-                    if (itemScore <= bottom && itemScore >= top && item.getType().equals(type) && item.getRegion().equals(region)) {
-                        // If a RecommendItem for this QSItem already exists in the RecommendList, update it
-                        boolean found = false;
-                        for (RecommendItem recommendItem : RecommendList) {
-                            if (recommendItem.getName().equals(item.name)) {
-                                recommendItem.update(item);
-                                found = true;
-                                break;
+                if(!type.equals(("All"))) {
+                    if (!region.equals("All")) {
+                        // Check if the item fits the score range, type, and region
+                        if (itemScore <= bottom && itemScore >= top && (item.getType() == null || item.getType().equals(type)) && item.getRegion().equals(region)) {
+                            // If a RecommendItem for this QSItem already exists in the RecommendList, update it
+                            boolean found = false;
+                            for (RecommendItem recommendItem : RecommendList) {
+                                if (recommendItem.getName().equals(item.name)) {
+                                    recommendItem.update(item);
+                                    found = true;
+                                    break;
+                                }
+                            }
+
+                            // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
+                            if (!found) {
+                                RecommendList.add(new RecommendItem(item));
                             }
                         }
+                    } else {
+                        if (itemScore <= bottom && itemScore >= top && (item.getType() == null || item.getType().equals(type))) {
+                            // If a RecommendItem for this QSItem already exists in the RecommendList, update it
+                            boolean found = false;
+                            for (RecommendItem recommendItem : RecommendList) {
+                                if (recommendItem.getName().equals(item.name)) {
+                                    recommendItem.update(item);
+                                    found = true;
+                                    break;
+                                }
+                            }
 
-                        // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
-                        if (!found) {
-                            RecommendList.add(new RecommendItem(item));
+                            // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
+                            if (!found) {
+                                RecommendList.add(new RecommendItem(item));
+                            }
                         }
                     }
-                } else {
-                    if (itemScore <= bottom && itemScore >= top && item.getType().equals(type)) {
-                        // If a RecommendItem for this QSItem already exists in the RecommendList, update it
-                        boolean found = false;
-                        for (RecommendItem recommendItem : RecommendList) {
-                            if (recommendItem.getName().equals(item.name)) {
-                                recommendItem.update(item);
-                                found = true;
-                                break;
+                }
+                else{
+                    if (!region.equals("All")) {
+                        // Check if the item fits the score range, type, and region
+                        if (itemScore <= bottom && itemScore >= top && item.getRegion().equals(region)) {
+                            // If a RecommendItem for this QSItem already exists in the RecommendList, update it
+                            boolean found = false;
+                            for (RecommendItem recommendItem : RecommendList) {
+                                if (recommendItem.getName().equals(item.name)) {
+                                    recommendItem.update(item);
+                                    found = true;
+                                    break;
+                                }
+                            }
+
+                            // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
+                            if (!found) {
+                                RecommendList.add(new RecommendItem(item));
                             }
                         }
+                    } else {
+                        if (itemScore <= bottom && itemScore >= top) {
+                            // If a RecommendItem for this QSItem already exists in the RecommendList, update it
+                            boolean found = false;
+                            for (RecommendItem recommendItem : RecommendList) {
+                                if (recommendItem.getName().equals(item.name)) {
+                                    recommendItem.update(item);
+                                    found = true;
+                                    break;
+                                }
+                            }
 
-                        // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
-                        if (!found) {
-                            RecommendList.add(new RecommendItem(item));
+                            // If a RecommendItem for this QSItem does not exist in the RecommendList, create a new one
+                            if (!found) {
+                                RecommendList.add(new RecommendItem(item));
+                            }
                         }
                     }
                 }
