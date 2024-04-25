@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="">
+    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Merge remote-tracking branch 'origin/main' into Malav&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/comp3111/qsproject/Controller.class">
+      <change afterPath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T21AnalysisTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T22AnalysisTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T21AnalysisTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T22AnalysisTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T21AnalysisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T21AnalysisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T22AnalysisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/T22AnalysisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T21AnalysisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T21AnalysisTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T22AnalysisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/T22AnalysisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/RecommendItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/RecommendItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T21Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T22Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T3Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/T3Analysis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/RecommendItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/RecommendItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T21Analysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T22Analysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T3Analysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/T3Analysis.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +40,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -65,20 +75,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.T21AnalysisTest1.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.comp3111.qsproject in QSProject.executor&quot;: &quot;Coverage&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Shriyan&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shekh/IdeaProjects/COMP3111Final&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "JUnit.T21AnalysisTest1.executor": "Coverage",
+    "JUnit.comp3111.qsproject in QSProject.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "Merging Malav",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/shekh/IdeaProjects/COMP3111Final",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -91,7 +104,7 @@
       <recent name="comp3111.qsproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.comp3111.qsproject in QSProject">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.Application" />
       <module name="QSProject" />
@@ -150,8 +163,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.comp3111.qsproject in QSProject" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.comp3111.qsproject in QSProject" />
         <item itemvalue="JUnit.RecommendItemTest.getRecentYear" />
       </list>
     </recent_temporary>
@@ -159,7 +172,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
       </set>
     </attachedChunks>
   </component>
@@ -364,35 +377,27 @@
       <option name="project" value="LOCAL" />
       <updated>1713605689278</updated>
     </task>
-    <task id="LOCAL-00025" summary="Merge Commit">
+    <task id="LOCAL-00025" summary="Modified pie chart and bar chart functions to include conditions to make a better user interface">
       <option name="closed" value="true" />
-      <created>1713697255016</created>
+      <created>1713939680927</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1713697255016</updated>
+      <updated>1713939680927</updated>
     </task>
-    <task id="LOCAL-00026" summary="Update Files">
+    <task id="LOCAL-00026" summary="Completed T1_onClickSearch() function in Controller">
       <option name="closed" value="true" />
-      <created>1713780278981</created>
+      <created>1713939827934</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1713780278982</updated>
+      <updated>1713939827934</updated>
     </task>
-    <task id="LOCAL-00027" summary="Changes to Controller">
-      <option name="closed" value="true" />
-      <created>1713780625911</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1713780625911</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Controller and QSList" />
+    <MESSAGE value="Update Files" />
     <MESSAGE value="Second Commit: Updated QSList.java and finished creating line chart and bar chart for task2.1" />
     <MESSAGE value="Update Task2.2 in Controller and made changes to T21 Analysis" />
     <MESSAGE value="Started BarChart Task2.2 and made constructor for it." />
@@ -412,24 +417,18 @@
     <MESSAGE value="Finished creating the pie chart data" />
     <MESSAGE value="Finished implementing the update() function of RecommendItem.class and the constructor of T3Analysis.java" />
     <MESSAGE value="Added the &quot;All&quot; functionality in T3Analysis.class constructor and fixed bugs related to string comparison" />
+    <MESSAGE value="Modified pie chart and bar chart functions to include conditions to make a better user interface" />
+    <MESSAGE value="Completed T1_onClickSearch() function in Controller" />
     <MESSAGE value="Completed the initialization, clearing, and recommend actions of T3 in Controller.java" />
-    <MESSAGE value="Merge Commit" />
-    <MESSAGE value="Initial Testing for Task2.1 and Task2.2" />
-    <MESSAGE value="Update Files" />
-    <MESSAGE value="Changes to Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to Controller" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main' into Malav&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/comp3111/qsproject/Controller.class&#10;" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main' into Malav&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/comp3111/qsproject/Controller.class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main' into Malav&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/comp3111/qsproject/Controller.class" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest.ic" NAME="RecommendItemTest Coverage Results" MODIFIED="1713401532982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>comp3111.qsproject.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111Testing$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713852980842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>comp3111.qsproject.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111FinalTesting$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713925361150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>comp3111.qsproject.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>comp3111.qsproject.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest.ic" NAME="RecommendItemTest Coverage Results" MODIFIED="1713401532982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
   </component>

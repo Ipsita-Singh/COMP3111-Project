@@ -17,7 +17,7 @@ public class T1Analysis {
             Use static properties in QSList here.
             Hint: QSList.list is a static property.
          */
-        List <QSItem> tList = (List<QSItem>) QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year));
+        List <QSItem> tList = QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year)).collect(Collectors.toList());
         tableList = FXCollections.observableArrayList(tList);
     }
 
@@ -46,14 +46,31 @@ public class T1Analysis {
             // Get the attribute value based on searchName
             String attributeValue = item.getProperty(searchName);
             // Get the score of the item
-            Double score = Double.valueOf(item.getScore());
             // Add the score to the corresponding attribute value in the map
-            scoreMap.put(attributeValue, scoreMap.getOrDefault(attributeValue, 0.0) + score);
+            if (!item.getScore().isEmpty()) {
+                Double score = Double.valueOf(item.getScore());
+                scoreMap.put(attributeValue, (Double)scoreMap.getOrDefault(attributeValue, 0.0) + score);
+            }
         }
 
         // Convert the map to PieChart.Data and add to pieChartData
         for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
-            pieChartData.add(new PieChart.Data(entry.getKey(), entry.getValue()));
+            pieChartData.add(new PieChart.Data(entry.getKey() + ": " + entry.getValue().intValue(), entry.getValue().intValue()));
+        }
+
+        // Sort the list based on the pie chart data values
+        Collections.sort(pieChartData, (o1, o2) -> Double.compare(o2.getPieValue(), o1.getPieValue()));
+
+        if (pieChartData.size() > 10){
+            int otherScore = 0;
+            for (int i = 9; i < pieChartData.size(); i++){
+                otherScore += pieChartData.get(i).getPieValue();
+            }
+
+            pieChartData.remove(9, pieChartData.size());
+
+            pieChartData.add(new PieChart.Data("Others: " + otherScore, otherScore));
+
         }
 
 
@@ -74,6 +91,46 @@ public class T1Analysis {
                 key: "S", value: the Average score of the Small size universities,
             ]
          */
+        Map<String, Double> scoreMap = new HashMap<>();
+        Map<String, Integer> countMap = new HashMap<>();
+
+        // Iterate over the tableList
+        for (QSItem item : tableList) {
+            // Get the attribute value based on searchName
+            String attributeValue = item.getProperty(searchName);
+            // Get the score of the item
+            // Add the score to the corresponding attribute value in the map
+            if (!item.getScore().isEmpty()) {
+                countMap.put(attributeValue, countMap.getOrDefault(attributeValue, 0) + 1);
+
+                Double score = Double.valueOf(item.getScore());
+                scoreMap.put(attributeValue, ((Double)scoreMap.getOrDefault(attributeValue, 0.0) * (countMap.get(attributeValue)-1) + score)/countMap.get(attributeValue));
+            }
+        }
+
+        // Convert the map to PieChart.Data and add to pieChartData
+        for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
+            barData.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
+        }
+
+        // Sort the list based on the bar chart data values
+        Collections.sort(barData.getData(), (o1, o2) -> Double.compare(o2.getYValue().doubleValue(), o1.getYValue().doubleValue()));
+
+
+        if (barData.getData().size() > 10){
+            double otherScore = 0;
+            int count = 0;
+            for (int i = 9; i < barData.getData().size(); i++){
+                int tempcount = countMap.get(barData.getData().get(i).getXValue());
+                otherScore = ((otherScore * count + barData.getData().get(i).getYValue() * tempcount) / (tempcount + count));
+            }
+
+            barData.getData().remove(9, barData.getData().size());
+
+            barData.getData().add(new XYChart.Data<>("Others", ( (double)otherScore)));
+
+        }
+
         return barData;
     }
 
