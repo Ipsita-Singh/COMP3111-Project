@@ -15,7 +15,8 @@ import javafx.scene.text.Font;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Controller {
+public class Controller{
+
 
     /* T1 Controller */
     public TableView<QSItem> t1DataTable;
@@ -171,6 +172,7 @@ public class Controller {
     ObservableList<String> yearList = FXCollections.observableArrayList("2017", "2018", "2019", "2020", "2021", "2022");
     ObservableList<String> stringPropertyList = FXCollections.observableArrayList("country", "region", "size", "type", "researchOutput");
 
+
     @FXML
     public void initialize() {
         // Whole Program Information
@@ -221,6 +223,7 @@ public class Controller {
         sortedRegions.add("All");
         t3RegionChoiceBox.setItems(sortedRegions);
         ObservableList<String> sortedTypes = FXCollections.observableArrayList();
+        sortedTypes.add("All");
         sortedTypes.add("Private");
         sortedTypes.add("Public");
         t3TypeChoiceBox.setItems(sortedTypes);
@@ -229,7 +232,6 @@ public class Controller {
         t3BestRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("bestRank"));
         t3RecentYear.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentYear"));
         t3RecentRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentRank"));
-
     }
 
     @FXML
@@ -999,11 +1001,6 @@ public class Controller {
             T3Analysis analyser = new T3Analysis(top_input, bottom_input, type, region);
 
             // 5. Update the Table View.
-            t3University.setCellValueFactory(new PropertyValueFactory<>("name"));
-            t3BestYear.setCellValueFactory(new PropertyValueFactory<>("bestYear"));
-            t3BestRank.setCellValueFactory(new PropertyValueFactory<>("bestRank"));
-            t3RecentYear.setCellValueFactory(new PropertyValueFactory<>("recentYear"));
-            t3RecentRank.setCellValueFactory(new PropertyValueFactory<>("recentRank"));
 
             ObservableList<RecommendItem> recommendData = analyser.getRecommendData();
             if (recommendData.isEmpty()){
