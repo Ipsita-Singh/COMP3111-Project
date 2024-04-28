@@ -20,6 +20,7 @@ public class QSList {
     public static ObservableList<String> type = FXCollections.observableArrayList();
     public static ObservableList<String> region = FXCollections.observableArrayList();
     public static ObservableList<String> country = FXCollections.observableArrayList();
+    public static ObservableList<String> link = FXCollections.observableArrayList();
 
     /**
      * Finding QS data path, initializing and processing the data and finally, assigning the data
@@ -105,7 +106,6 @@ public class QSList {
         type.addAll(uniqueTypes);
         region.addAll(uniqueRegions);
         country.addAll(uniqueCountries);
-
 
     }
 }
