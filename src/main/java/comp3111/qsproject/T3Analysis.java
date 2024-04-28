@@ -1,5 +1,6 @@
 package comp3111.qsproject;
 
+import javafx.application.HostServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 
 public class T3Analysis {
     public ObservableList<RecommendItem> RecommendList = FXCollections.observableArrayList();
+
 
     /**
      * Constructor for T3Analysis class

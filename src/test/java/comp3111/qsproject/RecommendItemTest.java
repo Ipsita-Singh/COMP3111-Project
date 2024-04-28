@@ -1,5 +1,6 @@
 package comp3111.qsproject;
 
+import javafx.application.HostServices;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

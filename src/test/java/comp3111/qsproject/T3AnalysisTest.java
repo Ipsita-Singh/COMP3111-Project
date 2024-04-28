@@ -1,11 +1,12 @@
 package comp3111.qsproject;
 
+import javafx.application.HostServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+import javafx.fxml.FXML;
 
 class T3AnalysisTest {
 
@@ -16,6 +17,7 @@ class T3AnalysisTest {
         String rank_bottom = "2";
         String region = "North America";
         String type = "Private";
+
         T3Analysis t3analysis = new T3Analysis(rank_top, rank_bottom, type, region);
         ObservableList<RecommendItem> recommendListExpected = FXCollections.observableArrayList();
         RecommendItem actualItem1 = new RecommendItem(QSList.list.get(0));

@@ -1,6 +1,10 @@
 package comp3111.qsproject;
 
+import javafx.application.HostServices;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
 
 public class RecommendItem {
     private SimpleStringProperty name;
@@ -12,6 +16,7 @@ public class RecommendItem {
     private SimpleStringProperty recentYear;
 
     private SimpleStringProperty recentRank;
+
 
     /**
      * Constructor of RecommendItem class
@@ -75,4 +80,5 @@ public class RecommendItem {
     public void setRecentYear(String RecentYear) {this.recentYear.set(RecentYear);}
 
     public void setRecentRank(String RecentRank) {this.recentRank.set(RecentRank);}
+
 }
