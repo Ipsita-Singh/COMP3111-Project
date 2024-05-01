@@ -241,51 +241,6 @@ public class Controller{
             Reset the Page Task1. (including the choice box, labels and charts)
          */
 
-        /*
-            public TableView<QSItem> t1DataTable;
-
-    @FXML
-    public ChoiceBox<String> t1YearChoiceBox;
-
-    @FXML
-    public BarChart<String, Double> t1BarChart;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Rank;
-
-    @FXML
-    public TableColumn<QSItem, String> t1University;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Score;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Country;
-
-    @FXML
-    public TableColumn<QSItem, String> t1City;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Type;
-
-    @FXML
-    public PieChart t1PieChart;
-
-    @FXML
-    public ChoiceBox<String> t1PieChartChoiceBox;
-
-    @FXML
-    public Label t1PieChartLabel;
-
-    @FXML
-    public ChoiceBox<String> t1BarChartChoiceBox;
-
-    @FXML
-    public Label t1BarChartLabel;
-
-    @FXML
-    public CategoryAxis t1BarChartTypeXaxis;
-         */
         t1DataTable.getItems().clear();
         t1YearChoiceBox.setValue("2017");
         t1BarChart.getData().clear();
@@ -307,51 +262,6 @@ public class Controller{
             Reset the Page Task1. (including the choice box, labels and charts)
          */
 
-        /*
-            public TableView<QSItem> t1DataTable;
-
-    @FXML
-    public ChoiceBox<String> t1YearChoiceBox;
-
-    @FXML
-    public BarChart<String, Double> t1BarChart;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Rank;
-
-    @FXML
-    public TableColumn<QSItem, String> t1University;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Score;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Country;
-
-    @FXML
-    public TableColumn<QSItem, String> t1City;
-
-    @FXML
-    public TableColumn<QSItem, String> t1Type;
-
-    @FXML
-    public PieChart t1PieChart;
-
-    @FXML
-    public ChoiceBox<String> t1PieChartChoiceBox;
-
-    @FXML
-    public Label t1PieChartLabel;
-
-    @FXML
-    public ChoiceBox<String> t1BarChartChoiceBox;
-
-    @FXML
-    public Label t1BarChartLabel;
-
-    @FXML
-    public CategoryAxis t1BarChartTypeXaxis;
-         */
         t1DataTable.getItems().clear();
         t1BarChart.getData().clear();
         t1PieChart.getData().clear();
