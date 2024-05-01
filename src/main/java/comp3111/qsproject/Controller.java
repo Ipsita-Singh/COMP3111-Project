@@ -799,7 +799,7 @@ public class Controller{
      * @author Ipsita Sanjay SINGH
      */
         @FXML
-    private void T3_onClickClear() {
+    public void T3_onClickClear() {
             //set error label to be empty
             errorT3.setText("");
 
@@ -823,7 +823,7 @@ public class Controller{
      * @author Ipsita Sanjay SINGH
      */
     @FXML
-    private void T3_onClickRecommend() {
+    public void T3_onClickRecommend() {
         // 1. Fetch the top and bottom boundary requirement of score.
         String top_input = t3TopRankTextField.getText();
         String bottom_input = t3BottomRankTextField.getText();
