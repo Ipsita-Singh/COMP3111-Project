@@ -235,7 +235,7 @@ public class Controller{
     }
 
     @FXML
-    private void T1_onClickClear() {
+    public void T1_onClickClear() {
         /*
             Your Code Here.
             Reset the Page Task1. (including the choice box, labels and charts)
@@ -256,7 +256,7 @@ public class Controller{
 
     }
 
-    private void T1_internalupdate() {
+    public void T1_internalupdate() {
         /*
             Your Code Here.
             Reset the Page Task1. (including the choice box, labels and charts)
@@ -274,7 +274,7 @@ public class Controller{
 
 
     @FXML
-    private void T1_onClickSearch() {
+    public void T1_onClickSearch() {
         /*
             Your Code Here.
             When click search on Task1:
@@ -342,7 +342,7 @@ public class Controller{
      * @author Shriyan Shekhar
      */
     @FXML
-    private void T21_onClickClear() {
+    public void T21_onClickClear() {
 
         //clear Universities and Combo Box
         t2University1ChoiceBox.setValue(null);
@@ -399,7 +399,7 @@ public class Controller{
      * @author Shriyan Shekhar
      */
     @FXML
-    private void T21_onClickCompare() {
+    public void T21_onClickCompare() {
         //Set error text as empty
         error1.setText("");
         t21OverallBarChart.getXAxis().setLabel ("");
@@ -519,7 +519,7 @@ public class Controller{
      * @author Shriyan Shekhar
      */
     @FXML
-    private void HandleCombo (){
+    public void HandleCombo (){
         String choice = FieldSelect.getValue();
         if (choice != null){
             t21OverallBarChart.getData().clear();
@@ -563,7 +563,7 @@ public class Controller{
      *  @author Shriyan Shekhar
      */
     @FXML
-    private void T22_onClickClear() {
+    public void T22_onClickClear() {
         //Clear Countries/regions
         t2CountryRegion1ChoiceBox.setValue(null);
         t2CountryRegion2ChoiceBox.setValue(null);
@@ -619,7 +619,7 @@ public class Controller{
      *  @author Shriyan Shekhar
      */
     @FXML
-    private void T22_onClickCompare() {
+    public void T22_onClickCompare() {
         error2.setText("");
         t22OverallBarChart.getXAxis().setLabel ("");
 
@@ -756,7 +756,7 @@ public class Controller{
      * @author Shriyan Shekhar
      */
     @FXML
-    private void HandleCombo2 (){
+    public void HandleCombo2 (){
         String choice = FieldSelect2.getValue();
         if (choice != null){
             t22OverallBarChart.getData().clear();
