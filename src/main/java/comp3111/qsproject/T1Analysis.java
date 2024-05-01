@@ -55,7 +55,7 @@ public class T1Analysis {
 
         // Convert the map to PieChart.Data and add to pieChartData
         for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
-            pieChartData.add(new PieChart.Data(entry.getKey() + ": " + entry.getValue().intValue(), entry.getValue().intValue()));
+            pieChartData.add(new PieChart.Data(entry.getKey() + ": " + Math.round(entry.getValue()), Math.round(entry.getValue())));
         }
 
         // Sort the list based on the pie chart data values
@@ -73,7 +73,7 @@ public class T1Analysis {
 
         }
 
-
+        System.out.println(pieChartData);
         return pieChartData;
     }
 
