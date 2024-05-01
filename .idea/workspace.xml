@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Commited workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Removed some comments in Controller.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <recent name="comp3111.qsproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ControllerTest">
+  <component name="RunManager" selected="JUnit.qsproject in QSProject">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.Application" />
       <module name="QSProject" />
@@ -193,8 +190,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.qsproject in QSProject" />
+        <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.comp3111.qsproject in QSProject" />
         <item itemvalue="JUnit.RecommendItemTest.getRecentYear" />
       </list>
@@ -456,11 +453,26 @@
       <option name="project" value="LOCAL" />
       <updated>1714025919982</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Removed some comments in Controller.java">
+      <option name="closed" value="true" />
+      <created>1714548027605</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1714548027605</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Removed some comments in Controller.java">
+      <option name="closed" value="true" />
+      <created>1714548050575</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714548050575</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Second Commit: Updated QSList.java and finished creating line chart and bar chart for task2.1" />
     <MESSAGE value="Update Task2.2 in Controller and made changes to T21 Analysis" />
     <MESSAGE value="Started BarChart Task2.2 and made constructor for it." />
     <MESSAGE value="Edited LineChart in T22Analysis, Changed slight code in T21 Analysis and changed Controller error statements" />
@@ -485,7 +497,8 @@
     <MESSAGE value="Committed workspace.xml" />
     <MESSAGE value="Completed testing for T3Analysis" />
     <MESSAGE value="Commited workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commited workspace.xml" />
+    <MESSAGE value="Removed some comments in Controller.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed some comments in Controller.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -526,6 +539,6 @@
     <SUITE FILE_PATH="coverage/COMP3111_Project$T3AnalysisTest.ic" NAME="T3AnalysisTest Coverage Results" MODIFIED="1714301429625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111_Project$qsproject_in_QSProject.ic" NAME="qsproject in QSProject Coverage Results" MODIFIED="1714316343978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/COMP3111_Project$qsproject_in_QSProject.ic" NAME="qsproject in QSProject Coverage Results" MODIFIED="1714548261359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
