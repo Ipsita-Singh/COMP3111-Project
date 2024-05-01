@@ -481,7 +481,6 @@
                                                       <TableColumn fx:id="t3BestRank" prefWidth="104.0" text="The Best Rank" />
                                                       <TableColumn fx:id="t3RecentYear" prefWidth="133.0" text="The Most Recent Year" />
                                                       <TableColumn fx:id="t3RecentRank" prefWidth="165.0" text="Rank of the most recent year" />
-                                                      <TableColumn fx:id="t3link" prefWidth="165.0" text="Link" />
                                                   </columns>
                                                 </TableView>
                                              </children>

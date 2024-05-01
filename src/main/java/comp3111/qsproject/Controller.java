@@ -813,15 +813,17 @@ public class Controller{
         try{
             int Bottom_input = Integer.parseInt(bottom_input);
         }
-        catch(NumberFormatException e){
+        catch(NumberFormatException exc){
             isInput2Int = false;
         }
 
         if (isInput1Int){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alert!");
             if (!isInput2Int) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Bottom Rank");
+                alert.showAndWait();
+                errorT3.setText("Please enter a positive integer for Bottom Rank");
                 error = true;
             }
         }
@@ -843,34 +845,35 @@ public class Controller{
         }
 
         // 3b. error handling for when the ranks are non-positive
-        if (Integer.parseInt(top_input)<=0){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
-            if (Integer.parseInt(bottom_input)<=0){
-                alert.setContentText("Please enter positive integer values for Bottom Rank and Top Rank");
-                alert.showAndWait();
-                errorT3.setText("Please enter positive integer values for Bottom Rank and Top Rank");
-                error = true;
-            }
-            else{
-                alert.setContentText("Please enter positive integer values for Top Rank");
-                alert.showAndWait();
-                errorT3.setText("Please enter positive integer values for Top Rank");
-                error = true;
-            }
-        }
-        else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
-            if (Integer.parseInt(bottom_input)<=0){
-                alert.setContentText("Please enter positive integer values for Bottom Rank");
-                alert.showAndWait();
-                errorT3.setText("Please enter positive integer values for Bottom Rank");
-                error = true;
+        if (!error) {
+            if (Integer.parseInt(top_input) <= 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                if (Integer.parseInt(bottom_input) <= 0) {
+                    alert.setContentText("Please enter positive integer values for Bottom Rank and Top Rank");
+                    alert.showAndWait();
+                    errorT3.setText("Please enter positive integer values for Bottom Rank and Top Rank");
+                    error = true;
+                } else {
+                    alert.setContentText("Please enter positive integer values for Top Rank");
+                    alert.showAndWait();
+                    errorT3.setText("Please enter positive integer values for Top Rank");
+                    error = true;
+                }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                if (Integer.parseInt(bottom_input) <= 0) {
+                    alert.setContentText("Please enter positive integer values for Bottom Rank");
+                    alert.showAndWait();
+                    errorT3.setText("Please enter positive integer values for Bottom Rank");
+                    error = true;
+                }
             }
         }
 
         //3c. error handling for when the text fields or the choice boxes are empty
+
         if (top_input == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
@@ -983,14 +986,18 @@ public class Controller{
             }
         }
 
+
+
         //3d. error handling for the case when top rank's value is higher thank bottom rank's value
-        if (Integer.parseInt(top_input) > Integer.parseInt(bottom_input)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
-            alert.setContentText("Please set Top rank's value to be lower than bottom rank's value");
-            alert.showAndWait();
-            errorT3.setText("Please set Top rank's value to be lower than bottom rank's value");
-            error = true;
+        if (!error) {
+            if (Integer.parseInt(top_input) > Integer.parseInt(bottom_input)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
+                alert.setContentText("Please set Top rank's value to be lower than bottom rank's value");
+                alert.showAndWait();
+                errorT3.setText("Please set Top rank's value to be lower than bottom rank's value");
+                error = true;
+            }
         }
 
         if (!error) {
