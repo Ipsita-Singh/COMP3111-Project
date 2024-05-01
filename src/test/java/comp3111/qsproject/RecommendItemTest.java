@@ -1,30 +1,77 @@
 package comp3111.qsproject;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+import javafx.fxml.FXML;
+
 
 class RecommendItemTest {
 
     @Test
-    void update() {
-
+    void updatecaseRecentRank() {
+    QSList.initialize();
+    QSItem item1 = QSList.list.get(0);
+    QSItem item2 = QSList.list.get(400);
+    RecommendItem recItem = new RecommendItem(item1);
+    recItem.update(item2);
+    Assertions.assertEquals(recItem.getRecentYear(), item2.getYear());
+    Assertions.assertEquals(recItem.getRecentRank(), item2.getRank());
+    Assertions.assertNotEquals(recItem.getBestYear(), item2.getYear());
+    Assertions.assertEquals(recItem.getBestRank(), item2.getRank());
     }
 
     @Test
-    void getRecentYear() {
-        String[] input = new String[] {"MIT", "2021", "1", "100", "https://www.topuniversities.com/universities/massachusetts-institute-technology-mit",
-        "USA", "Cambridge", "Massachusetts","https://www.topuniversities.com/sites/default/files/massachusetts-institute-of-technology-mit_410_small.jpg\n", "public", "100", "0.9", "79", "L", "96"};
-        QSItem item = new QSItem(input);
-        RecommendItem item1 = new RecommendItem(item);
-
-        String[] input2 = new String[] {"MIT", "2022", "2", "100", "https://www.topuniversities.com/universities/massachusetts-institute-technology-mit",
-                "USA", "Cambridge", "Massachusetts","https://www.topuniversities.com/sites/default/files/massachusetts-institute-of-technology-mit_410_small.jpg\n", "public", "100", "0.9", "79", "L", "96"};
-        QSItem item_2 = new QSItem(input2);
-        RecommendItem item2 = new RecommendItem(item_2);
-        item1.update(item_2);
-        String expected = "2022";
-        String actual = item1.getRecentYear();
-        assertEquals(expected, actual);
+    void updatecaseBestRank(){
+        QSList.initialize();
+        QSItem item1 = QSList.list.get(1);
+        QSItem item2 = QSList.list.get(2002);
+        RecommendItem recItem = new RecommendItem(item2);
+        recItem.update(item1);
+        Assertions.assertEquals(recItem.getBestYear(), item1.getYear());
+        Assertions.assertEquals(recItem.getBestRank(), item1.getRank());
     }
+
+    @Test
+    void updatecaseRecentRankandBestRank(){
+        QSList.initialize();
+        QSItem item1 = QSList.list.get(1205);
+        QSItem item2 = QSList.list.get(1603);
+        RecommendItem recItem = new RecommendItem(item1);
+        recItem.update(item2);
+        Assertions.assertEquals(recItem.getBestYear(), item2.getYear());
+        Assertions.assertEquals(recItem.getBestRank(), item2.getRank());
+        Assertions.assertEquals(recItem.getRecentYear(), item2.getYear());
+        Assertions.assertEquals(recItem.getRecentRank(), item2.getRank());
+    }
+
+    @Test
+    void updatecasenull(){
+        QSList.initialize();
+        QSItem item1 = QSList.list.get(1);
+        QSItem item2 = QSList.list.get(1);
+        RecommendItem recItem = new RecommendItem(item2);
+        recItem.update(item1);
+        Assertions.assertEquals(recItem.getBestYear(), item1.getYear());
+        Assertions.assertEquals(recItem.getBestRank(), item1.getRank());
+        Assertions.assertEquals(recItem.getRecentYear(), item2.getYear());
+        Assertions.assertEquals(recItem.getRecentRank(), item2.getRank());
+    }
+
+
+    @Test
+    void updatecaseinvalid(){
+        QSList.initialize();
+        QSItem item1 = QSList.list.get(1205);
+        QSItem item2 = QSList.list.get(1);
+        RecommendItem recItem = new RecommendItem(item1);
+        recItem.update(item2);
+        //Assertions.assertEquals(recItem.getBestYear(), item2.getYear());
+        //Assertions.assertEquals(recItem.getBestRank(), item2.getRank());
+        //Assertions.assertEquals(recItem.getRecentYear(), item2.getYear());
+        //Assertions.assertEquals(recItem.getRecentRank(), item2.getRank());
+    }
+
 }

@@ -9,12 +9,14 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Controller {
+public class Controller{
+
 
     /* T1 Controller */
     public TableView<QSItem> t1DataTable;
@@ -170,12 +172,20 @@ public class Controller {
     ObservableList<String> yearList = FXCollections.observableArrayList("2017", "2018", "2019", "2020", "2021", "2022");
     ObservableList<String> stringPropertyList = FXCollections.observableArrayList("country", "region", "size", "type", "researchOutput");
 
+
     @FXML
     public void initialize() {
         // Whole Program Information
         QSList.initialize();
         // T1
-
+        t1YearChoiceBox.setItems(yearList);
+        t1YearChoiceBox.setValue("2017");
+        t1PieChartChoiceBox.setItems(stringPropertyList);
+        t1PieChartChoiceBox.setValue("country");
+        t1PieChartLabel.setText("");
+        t1BarChartChoiceBox.setItems(stringPropertyList);
+        t1BarChartChoiceBox.setValue("country");
+        t1BarChartLabel.setText("");
         // T2
         ObservableList<String> sortedUniversity = QSList.university;
         sortedUniversity.sort(Comparator.naturalOrder());
@@ -213,6 +223,7 @@ public class Controller {
         sortedRegions.add("All");
         t3RegionChoiceBox.setItems(sortedRegions);
         ObservableList<String> sortedTypes = FXCollections.observableArrayList();
+        sortedTypes.add("All");
         sortedTypes.add("Private");
         sortedTypes.add("Public");
         t3TypeChoiceBox.setItems(sortedTypes);
@@ -221,7 +232,6 @@ public class Controller {
         t3BestRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("bestRank"));
         t3RecentYear.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentYear"));
         t3RecentRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentRank"));
-
     }
 
     @FXML
@@ -230,7 +240,38 @@ public class Controller {
             Your Code Here.
             Reset the Page Task1. (including the choice box, labels and charts)
          */
+
+        t1DataTable.getItems().clear();
+        t1YearChoiceBox.setValue("2017");
+        t1BarChart.getData().clear();
+        t1PieChartChoiceBox.setValue("country");
+        t1BarChartChoiceBox.setValue("country");
+        t1PieChart.getData().clear();
+        t1BarChartLabel.setText(null);
+        t1PieChartLabel.setText(null);
+        t1BarChart.setTitle(null);
+        t1PieChart.setTitle(null);
+
+
+
     }
+
+    private void T1_internalupdate() {
+        /*
+            Your Code Here.
+            Reset the Page Task1. (including the choice box, labels and charts)
+         */
+
+        t1DataTable.getItems().clear();
+        t1BarChart.getData().clear();
+        t1PieChart.getData().clear();
+        t1BarChartLabel.setText(null);
+        t1PieChartLabel.setText(null);
+        t1BarChart.setTitle(null);
+        t1PieChart.setTitle(null);
+
+    }
+
 
     @FXML
     private void T1_onClickSearch() {
@@ -245,6 +286,55 @@ public class Controller {
                 6. Update the Bar Chart, which shows the average score of selected property (t1BarChartChoiceBox).
             Please notice that we need listeners for monitoring the changes of choice box in pie chart and bar chart.
          */
+
+        //Clearing previous data
+        T1_internalupdate();
+        //Fetching year from choice box
+        String year = t1YearChoiceBox.getValue();
+
+        //Making an analyser
+        T1Analysis T1analyser = new T1Analysis(year);
+
+        t1PieChart.layout();
+        //Updating Table view
+        t1University.setCellValueFactory(new PropertyValueFactory<>("name"));
+        t1Country.setCellValueFactory(new PropertyValueFactory<>("country"));
+        t1City.setCellValueFactory(new PropertyValueFactory<>("city"));
+        t1Score.setCellValueFactory(new PropertyValueFactory<>("score"));
+        t1Rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        t1Type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        t1DataTable.setItems(T1analyser.getTableList());
+
+        //Updating Pie Chart view
+        t1PieChart.setData(T1analyser.getPieChartData(t1PieChartChoiceBox.getValue()));
+
+        //Setting the title of the Pie chart
+        t1PieChartLabel.setText(t1PieChartChoiceBox.getValue() + " & score");
+
+        //setting the direction to arrange the data
+        t1PieChart.setClockwise(true);
+
+        //Setting the length of the label line
+        //t1PieChart.setLabelLineLength(50);
+
+        //Setting the labels of the pie chart visible
+        t1PieChart.setLabelsVisible(true);
+
+        //Setting the start angle of the pie chart
+        t1PieChart.setStartAngle(180);
+
+        t1BarChart.layout();
+
+        //Updating the bar chart view
+        t1BarChart.getData().add(T1analyser.getBarChartData(t1BarChartChoiceBox.getValue()));
+
+        //Setting the title of the Bar chart
+        t1BarChartLabel.setText(t1BarChartChoiceBox.getValue() + " & score");
+
+        //Setting font size of X axis labels
+        t1BarChart.getXAxis().tickLabelFontProperty().set(Font.font("-fx-font-size: " + 10 + "px;"));
+
+
     }
 
     /**
@@ -943,11 +1033,6 @@ public class Controller {
             T3Analysis analyser = new T3Analysis(top_input, bottom_input, type, region);
 
             // 5. Update the Table View.
-            t3University.setCellValueFactory(new PropertyValueFactory<>("name"));
-            t3BestYear.setCellValueFactory(new PropertyValueFactory<>("bestYear"));
-            t3BestRank.setCellValueFactory(new PropertyValueFactory<>("bestRank"));
-            t3RecentYear.setCellValueFactory(new PropertyValueFactory<>("recentYear"));
-            t3RecentRank.setCellValueFactory(new PropertyValueFactory<>("recentRank"));
 
             ObservableList<RecommendItem> recommendData = analyser.getRecommendData();
             if (recommendData.isEmpty()){

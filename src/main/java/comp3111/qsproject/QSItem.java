@@ -20,12 +20,14 @@ public class QSItem {
     public String internationalStudents;
     public String size;
     public String facultyCount;
+    public String link;
     QSItem(String[] string_line) {
         assert(string_line.length == 15);
         name = string_line[0];
         year = string_line[1];
         rank = string_line[2];
         score = string_line[3];
+        link = string_line[4];
         country = string_line[5];
         city = string_line[6];
         region = string_line[7];
@@ -65,6 +67,8 @@ public class QSItem {
     public String getFacultyCount() {
         return facultyCount;
     }
+
+    public String getLink() {return link;}
 
     /**
      * Retrieves the value of the specified property using reflection.
