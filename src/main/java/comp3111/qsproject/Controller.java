@@ -240,7 +240,38 @@ public class Controller{
             Your Code Here.
             Reset the Page Task1. (including the choice box, labels and charts)
          */
+
+        t1DataTable.getItems().clear();
+        t1YearChoiceBox.setValue("2017");
+        t1BarChart.getData().clear();
+        t1PieChartChoiceBox.setValue("country");
+        t1BarChartChoiceBox.setValue("country");
+        t1PieChart.getData().clear();
+        t1BarChartLabel.setText(null);
+        t1PieChartLabel.setText(null);
+        t1BarChart.setTitle(null);
+        t1PieChart.setTitle(null);
+
+
+
     }
+
+    private void T1_internalupdate() {
+        /*
+            Your Code Here.
+            Reset the Page Task1. (including the choice box, labels and charts)
+         */
+
+        t1DataTable.getItems().clear();
+        t1BarChart.getData().clear();
+        t1PieChart.getData().clear();
+        t1BarChartLabel.setText(null);
+        t1PieChartLabel.setText(null);
+        t1BarChart.setTitle(null);
+        t1PieChart.setTitle(null);
+
+    }
+
 
     @FXML
     private void T1_onClickSearch() {
@@ -256,14 +287,15 @@ public class Controller{
             Please notice that we need listeners for monitoring the changes of choice box in pie chart and bar chart.
          */
 
+        //Clearing previous data
+        T1_internalupdate();
         //Fetching year from choice box
         String year = t1YearChoiceBox.getValue();
-
-        //Clearing previous data
 
         //Making an analyser
         T1Analysis T1analyser = new T1Analysis(year);
 
+        t1PieChart.layout();
         //Updating Table view
         t1University.setCellValueFactory(new PropertyValueFactory<>("name"));
         t1Country.setCellValueFactory(new PropertyValueFactory<>("country"));
@@ -277,13 +309,13 @@ public class Controller{
         t1PieChart.setData(T1analyser.getPieChartData(t1PieChartChoiceBox.getValue()));
 
         //Setting the title of the Pie chart
-        t1PieChart.setTitle(t1PieChartChoiceBox.getValue() + " & score");
+        t1PieChartLabel.setText(t1PieChartChoiceBox.getValue() + " & score");
 
         //setting the direction to arrange the data
         t1PieChart.setClockwise(true);
 
         //Setting the length of the label line
-        t1PieChart.setLabelLineLength(50);
+        //t1PieChart.setLabelLineLength(50);
 
         //Setting the labels of the pie chart visible
         t1PieChart.setLabelsVisible(true);
@@ -291,13 +323,13 @@ public class Controller{
         //Setting the start angle of the pie chart
         t1PieChart.setStartAngle(180);
 
+        t1BarChart.layout();
+
         //Updating the bar chart view
-        t1BarChart.getData().removeAll();
         t1BarChart.getData().add(T1analyser.getBarChartData(t1BarChartChoiceBox.getValue()));
 
-
         //Setting the title of the Bar chart
-        t1BarChart.setTitle(t1BarChartChoiceBox.getValue() + " & score");
+        t1BarChartLabel.setText(t1BarChartChoiceBox.getValue() + " & score");
 
         //Setting font size of X axis labels
         t1BarChart.getXAxis().tickLabelFontProperty().set(Font.font("-fx-font-size: " + 10 + "px;"));
