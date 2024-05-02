@@ -850,9 +850,11 @@ public class Controller{
         }
 
         if (isInput1Int){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            //alert.setTitle("Alert!");
             if (!isInput2Int) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Bottom Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank");
@@ -860,15 +862,19 @@ public class Controller{
             }
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            //alert.setTitle("Alert!");
             if (!isInput2Int){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Bottom Rank and Top Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank and Top Rank");
                 error = true;
             }
             else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Top Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Top Rank");
@@ -893,9 +899,11 @@ public class Controller{
                     error = true;
                 }
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Alert!");
+                //Alert alert = new Alert(Alert.AlertType.ERROR);
+                //alert.setTitle("Alert!");
                 if (Integer.parseInt(bottom_input) <= 0) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Alert!");
                     alert.setContentText("Please enter positive integer values for Bottom Rank");
                     alert.showAndWait();
                     errorT3.setText("Please enter positive integer values for Bottom Rank");
@@ -965,9 +973,11 @@ public class Controller{
                 }
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            //alert.setTitle("Alert!");
             if (bottom_input == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 if (type == null) {
                     if (region.equals("")) {
                         alert.setContentText("Please Select Bottom Rank, Type and Region");
@@ -996,6 +1006,8 @@ public class Controller{
                 }
             } else {
                 if (type == null) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Alert!");
                     if (region == null) {
                         alert.setContentText("Please Select Type and Region");
                         alert.showAndWait();
@@ -1009,6 +1021,8 @@ public class Controller{
                     }
                 } else {
                     if (region == null) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Alert!");
                         alert.setContentText("Please Select Region");
                         alert.showAndWait();
                         errorT3.setText("Please Select Region");
