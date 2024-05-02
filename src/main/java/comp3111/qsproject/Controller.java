@@ -391,6 +391,45 @@ public class Controller{
     }
 
     /**
+     * Clears all the chart data in the line and chart tab for universities.
+     * @author Shriyan Shekhar
+     */
+    public void clearTask21(){
+        FieldSelect.setValue(null);
+
+        CategoryAxis xAxis = (CategoryAxis) t21LineChart.getXAxis();
+        xAxis.setAutoRanging(true);
+        xAxis.setCategories(yearList);
+
+        ChartTitle1.setText("");
+        t21LineChart.setTitle("");
+
+
+        //Clear Data
+        if (barChartData != null){
+            barChartData.getData().clear();
+        }
+        if (barChartData2 !=null){
+            barChartData2.getData().clear();
+        }
+        if (barChartData3 !=null){
+            barChartData3.getData().clear();
+        }
+        if (barChartData4 !=null){
+            barChartData4.getData().clear();
+        }
+        if (barChartData5 !=null){
+            barChartData5.getData().clear();
+        }
+
+        //Clear Charts
+        t21OverallBarChart.getData().clear();
+        t21OverallBarChart.getXAxis().setLabel ("");
+        t21LineChart.getData().clear();
+
+    }
+
+    /**
      * Fetches university choices and years
      * Clears Existing data on charts first before displaying new data.
      * Creates an Analyzer.
@@ -430,6 +469,7 @@ public class Controller{
         List <QSItem> universityList2 = QSList.list.stream().filter (qsItem -> qsItem.getName().equals(university2) && SelectedYears.contains(qsItem.year)).toList();
 
         if (university1 == null) {
+            clearTask21();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             if (university2 == null) {
@@ -456,6 +496,7 @@ public class Controller{
             }
         }
         else if (university2 == null) {
+            clearTask21();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             if (!yearCondition) {
@@ -469,6 +510,7 @@ public class Controller{
             }
         }
         else if (!yearCondition) {
+            clearTask21();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Year");
@@ -476,6 +518,7 @@ public class Controller{
             error1.setText("Please Select Year");
         }
         else if (universityList1.isEmpty() || universityList2.isEmpty()){
+            clearTask21();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Another Year or University");
@@ -611,6 +654,44 @@ public class Controller{
     }
 
     /**
+     * Clears all the chart data in the line and chart tab for countries.
+     * @author Shriyan Shekhar
+     */
+    public void ClearTask22(){
+        FieldSelect2.setValue(null);
+
+        CategoryAxis xAxis2 = (CategoryAxis) t22LineChart.getXAxis();
+        xAxis2.setAutoRanging(true);
+        xAxis2.setCategories(yearList);
+
+        t22LineChart.setTitle("");
+        ChartTitle2.setText("");
+
+        //Clear Data
+        if (barChartData21 != null){
+            barChartData21.getData().clear();
+        }
+        if (barChartData22 !=null){
+            barChartData22.getData().clear();
+        }
+        if (barChartData23 !=null){
+            barChartData23.getData().clear();
+        }
+        if (barChartData24 !=null){
+            barChartData24.getData().clear();
+        }
+        if (barChartData25 !=null){
+            barChartData25.getData().clear();
+        }
+
+        //Clear Charts
+        t22OverallBarChart.getData().clear();
+        t22OverallBarChart.getXAxis().setLabel ("");
+        t22LineChart.getData().clear();
+    }
+
+
+    /**
      *  Fetches country/region choices and years
      *  Clears Existing data on charts first before displaying new data.
      *  Creates an Analyzer.
@@ -666,6 +747,7 @@ public class Controller{
         }
 
         if (countryregion1 == null) {
+            ClearTask22();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             if (countryregion2 == null) {
@@ -694,6 +776,7 @@ public class Controller{
             }
         }
         else if (countryregion2 == null) {
+            ClearTask22();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             if (yearCondition_22 == false) {
@@ -708,6 +791,7 @@ public class Controller{
             }
         }
         else if (yearCondition_22 == false) {
+            ClearTask22();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Year");
@@ -715,6 +799,7 @@ public class Controller{
             error2.setText("Please Select Year");
         }
         else if (countryList1.isEmpty() || countryList2.isEmpty()){
+            ClearTask22();
             Alert alert = new Alert (Alert.AlertType.ERROR);
             alert.setTitle("Alert!");
             alert.setContentText("Please Select Another Year or Country/Region");
@@ -850,9 +935,9 @@ public class Controller{
         }
 
         if (isInput1Int){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
             if (!isInput2Int) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Bottom Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank");
@@ -860,15 +945,17 @@ public class Controller{
             }
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
             if (!isInput2Int){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Bottom Rank and Top Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank and Top Rank");
                 error = true;
             }
             else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 alert.setContentText("Please enter a positive integer for Top Rank");
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Top Rank");
@@ -893,9 +980,9 @@ public class Controller{
                     error = true;
                 }
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Alert!");
                 if (Integer.parseInt(bottom_input) <= 0) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Alert!");
                     alert.setContentText("Please enter positive integer values for Bottom Rank");
                     alert.showAndWait();
                     errorT3.setText("Please enter positive integer values for Bottom Rank");
@@ -965,9 +1052,9 @@ public class Controller{
                 }
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alert!");
             if (bottom_input == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alert!");
                 if (type == null) {
                     if (region.equals("")) {
                         alert.setContentText("Please Select Bottom Rank, Type and Region");
@@ -996,6 +1083,8 @@ public class Controller{
                 }
             } else {
                 if (type == null) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Alert!");
                     if (region == null) {
                         alert.setContentText("Please Select Type and Region");
                         alert.showAndWait();
@@ -1009,6 +1098,8 @@ public class Controller{
                     }
                 } else {
                     if (region == null) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Alert!");
                         alert.setContentText("Please Select Region");
                         alert.showAndWait();
                         errorT3.setText("Please Select Region");
