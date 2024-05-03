@@ -110,6 +110,7 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Faculty Count",controller.t22OverallBarChart.getXAxis().getLabel());
+        controller.ClearTask22();
     }
 
     @Test
@@ -133,6 +134,7 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Rank",controller.t22OverallBarChart.getXAxis().getLabel());
+        controller.ClearTask22();
     }
     @Test
     public void HandleCombo3() throws IOException {
@@ -156,6 +158,7 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. International Students",controller.t22OverallBarChart.getXAxis().getLabel());
+        controller.ClearTask22();
     }
 
     @Test
@@ -179,6 +182,7 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Score",controller.t22OverallBarChart.getXAxis().getLabel());
+        controller.ClearTask22();
     }
 
     @Test
@@ -200,8 +204,10 @@ public class ControllerTest {
         controller.HandleCombo2();
 
 
+
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Student Faculty Ratio",controller.t22OverallBarChart.getXAxis().getLabel());
+        controller.ClearTask22();
     }
 
     @Test
@@ -225,6 +231,7 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Faculty Count",controller.t21OverallBarChart.getXAxis().getLabel());
+        controller.clearTask21();
     }
 
     @Test
@@ -314,6 +321,26 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("Avg. Student Faculty Ratio",controller.t21OverallBarChart.getXAxis().getLabel());
+    }
+
+    @Test
+    public void Task3() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("ui.fxml"));
+        fxmlLoader.load();
+        Controller controller = fxmlLoader.getController();
+
+        // Verify that the choice boxes are initialized correctly
+        controller.initialize();
+
+        controller.t3TopRankTextField.setText("1");
+        controller.t3BottomRankTextField.setText ("500");
+        controller.t3TypeChoiceBox.setValue ("Public");
+        controller.t3RegionChoiceBox.setValue ("Asia");
+
+        controller.T3_onClickRecommend();
+
+        // Add more assertions to validate other elements in the Controller class
+        assertEquals("",controller.errorT3.getText());
     }
 }
 

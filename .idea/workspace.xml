@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Commited workspace.xml">
+    <list default="true" id="e9dc4165-9cb0-4f6b-8dd5-bdf566047ee7" name="Changes" comment="Removed some comments in Controller.java">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/comp3111/qsproject/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/comp3111/qsproject/ControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/comp3111/qsproject/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/comp3111/qsproject/ControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,10 +69,8 @@
   "keyToString": {
     "Application.Application.executor": "Run",
     "JUnit.ControllerTest.executor": "Run",
-    "JUnit.ControllerTest.testT1.executor": "Run",
     "JUnit.T21AnalysisTest1.executor": "Coverage",
     "JUnit.comp3111.qsproject in QSProject.executor": "Coverage",
-    "JUnit.qsproject in QSProject.executor": "Coverage",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -95,7 +96,7 @@
       <recent name="comp3111.qsproject" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.qsproject in QSProject">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.Application" />
       <module name="QSProject" />
@@ -109,9 +110,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="QSProject" />
-      <extension name="coverage">
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="comp3111.qsproject.*" />
           <option name="ENABLED" value="true" />
@@ -119,12 +120,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="comp3111.qsproject" />
       <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.ControllerTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerTest.testT1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecommendItemTest.getRecentYear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QSProject" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +135,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="comp3111.qsproject" />
-      <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.ControllerTest" />
-      <option name="METHOD_NAME" value="testT1" />
+      <option name="MAIN_CLASS_NAME" value="comp3111.qsproject.RecommendItemTest" />
+      <option name="METHOD_NAME" value="getRecentYear" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,13 +160,15 @@
     </configuration>
     <configuration name="comp3111.qsproject in QSProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QSProject" />
-      <extension name="coverage">
+      <extension name="coverage" sample_coverage="false">
         <pattern>
           <option name="PATTERN" value="comp3111.qsproject.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="comp3111.qsproject" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -172,9 +176,6 @@
     </configuration>
     <configuration name="qsproject in QSProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="QSProject" />
-      <extension name="coverage" sample_coverage="false" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/src/test/java/comp3111/qsproject" />
       <method v="2">
@@ -198,17 +199,16 @@
       <item itemvalue="Application.Application" />
       <item itemvalue="JUnit.T3AnalysisTest" />
       <item itemvalue="JUnit.ControllerTest" />
-      <item itemvalue="JUnit.ControllerTest.testT1" />
+      <item itemvalue="JUnit.RecommendItemTest.getRecentYear" />
       <item itemvalue="JUnit.qsproject in QSProject" />
       <item itemvalue="JUnit.comp3111.qsproject in QSProject" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.qsproject in QSProject" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.ControllerTest.testT1" />
-        <item itemvalue="JUnit.ControllerTest" />
         <item itemvalue="JUnit.comp3111.qsproject in QSProject" />
+        <item itemvalue="JUnit.qsproject in QSProject" />
+        <item itemvalue="JUnit.RecommendItemTest.getRecentYear" />
       </list>
     </recent_temporary>
   </component>
@@ -468,11 +468,26 @@
       <option name="project" value="LOCAL" />
       <updated>1714025919982</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Removed some comments in Controller.java">
+      <option name="closed" value="true" />
+      <created>1714548027605</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1714548027605</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Removed some comments in Controller.java">
+      <option name="closed" value="true" />
+      <created>1714548050575</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714548050575</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Second Commit: Updated QSList.java and finished creating line chart and bar chart for task2.1" />
     <MESSAGE value="Update Task2.2 in Controller and made changes to T21 Analysis" />
     <MESSAGE value="Started BarChart Task2.2 and made constructor for it." />
     <MESSAGE value="Edited LineChart in T22Analysis, Changed slight code in T21 Analysis and changed Controller error statements" />
@@ -497,7 +512,8 @@
     <MESSAGE value="Committed workspace.xml" />
     <MESSAGE value="Completed testing for T3Analysis" />
     <MESSAGE value="Commited workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commited workspace.xml" />
+    <MESSAGE value="Removed some comments in Controller.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed some comments in Controller.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -520,24 +536,26 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Final$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1714538454365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest_updatecaseRecentRank.ic" NAME="RecommendItemTest.updatecaseRecentRank Coverage Results" MODIFIED="1714311712257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Final$qsproject_in_QSProject.ic" NAME="qsproject in QSProject Coverage Results" MODIFIED="1714539204649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest.ic" NAME="RecommendItemTest Coverage Results" MODIFIED="1713401532982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/COMP3111_Project$RecommendItemTest.ic" NAME="RecommendItemTest Coverage Results" MODIFIED="1714316235395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111_Project$qsproject_in_QSProject.ic" NAME="qsproject in QSProject Coverage Results" MODIFIED="1713938260553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/COMP3111_Project$qsproject_in_QSProject.ic" NAME="qsproject in QSProject Coverage Results" MODIFIED="1714548261359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Work$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1714630754605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>comp3111.qsproject.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111Testing$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713697692675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>comp3111.qsproject.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111FinalTesting$comp3111_qsproject_in_QSProject.ic" NAME="comp3111.qsproject in QSProject Coverage Results" MODIFIED="1713925361150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/COMP3111Final$T21AnalysisTest1.ic" NAME="T21AnalysisTest1 Coverage Results" MODIFIED="1713273851351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/COMP3111_Project$T3AnalysisTest.ic" NAME="T3AnalysisTest Coverage Results" MODIFIED="1714122893299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/COMP3111_Project$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1714541421613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>comp3111.qsproject.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/COMP3111_Project$T3AnalysisTest.ic" NAME="T3AnalysisTest Coverage Results" MODIFIED="1714301429625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>comp3111.qsproject.*</FILTER>
     </SUITE>
   </component>
