@@ -89,7 +89,7 @@ public class T1Analysis {
      * The score for each university is averaged according to the property value selected and the count value from the countMap
      * The averaged scores are stored in the hash map "scoreMap"
      * The hash map is then traversed over, and the values are used to create the final bar chart data values which are sorted
-     * For the property "country", only the highest 8 will be calculated individually and the rest will be categorised as others
+     * For the property "country", only the highest 19 will be calculated individually and the rest will be categorised as others
      * This is done to better the formatting and the interface of the bar chart
      * @author Malav Daftary
      * @param searchName The property selected by the user which is used as the filter for the bar chart data
