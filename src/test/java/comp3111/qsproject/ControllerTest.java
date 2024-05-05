@@ -1,8 +1,11 @@
 package comp3111.qsproject;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 
 import javafx.application.Platform;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +33,25 @@ public class ControllerTest {
 
         // Add more assertions to validate other elements in the Controller class
         assertEquals("2017",controller.t1YearChoiceBox.getValue());
+    }
+
+    @Test
+    public void testResetTask3() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("ui.fxml"));
+        fxmlLoader.load();
+        Controller controller = fxmlLoader.getController();
+
+        controller.initialize();
+
+        controller.t3RegionChoiceBox.setValue("All");
+        controller.t3TypeChoiceBox.setValue("Private");
+        controller.t3TopRankTextField.setText("1");
+        controller.t3BottomRankTextField.setText("5");
+
+        controller.T3_onClickRecommend();
+        controller.T3_onClickClear();
+
+        assertEquals(null, controller.t3RegionChoiceBox.getValue());
     }
 
     @Test
@@ -89,6 +111,44 @@ public class ControllerTest {
         assertEquals(false,controller.t22017CheckBox2.isSelected());
     }
 
+    @Test
+    public void testRecommend() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("ui.fxml"));
+        fxmlLoader.load();
+        Controller controller = fxmlLoader.getController();
+
+        // Verify that the choice boxes are initialized correctly
+        controller.initialize();
+
+        controller.t3RegionChoiceBox.setValue("All");
+        controller.t3TypeChoiceBox.setValue("Private");
+        controller.t3TopRankTextField.setText("1");
+        controller.t3BottomRankTextField.setText("2");
+
+        controller.T3_onClickRecommend();
+        ObservableList<RecommendItem> recommendListExpected = FXCollections.observableArrayList();
+        RecommendItem actualItem1 = new RecommendItem(QSList.list.get(0));
+        RecommendItem actualItem2 = new RecommendItem(QSList.list.get(1));
+        actualItem1.setRecentRank("1");
+        actualItem1.setRecentYear("2022");
+        actualItem1.setBestYear("2017");
+        actualItem1.setBestRank("1");
+        actualItem2.setRecentRank("2");
+        actualItem2.setRecentYear("2021");
+        actualItem2.setBestYear("2017");
+        actualItem2.setBestRank("2");
+        recommendListExpected.add(actualItem1);
+        recommendListExpected.add(actualItem2);
+        Assertions.assertEquals(controller.t3TableView.getItems().size(), recommendListExpected.size());
+        for (int i = 0; i < recommendListExpected.size(); i++){
+            RecommendItem item_actual = controller.t3TableView.getItems().get(i);
+            RecommendItem item_expected = recommendListExpected.get(i);
+            Assertions.assertEquals(item_expected.getBestRank(), item_actual.getBestRank());
+            Assertions.assertEquals(item_expected.getBestYear(), item_actual.getBestYear());
+            Assertions.assertEquals(item_expected.getRecentRank(), item_actual.getRecentRank());
+            Assertions.assertEquals(item_expected.getRecentYear(), item_actual.getRecentYear());
+        }
+    }
     @Test
     public void HandleCombo() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("ui.fxml"));

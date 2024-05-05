@@ -888,12 +888,19 @@ public class Controller{
             t3TypeChoiceBox.setValue(null);
             t3RegionChoiceBox.setValue(null);
 
-            //clear data from table, bar chart and pie charts
+            //clear data from table
             if (t3TableView != null){
                 t3TableView.getItems().clear();
             }
     }
 
+    @FXML
+    public void clearTask3() {
+        //clear data from table
+        if (t3TableView != null){
+            t3TableView.getItems().clear();
+        }
+    }
     /**
      * Retrieves all the user inputs and checks whether all the inputs or not. If not, relevant errors are raised.
      * If all the conditions are met then an analyser is created.
@@ -936,6 +943,7 @@ public class Controller{
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank");
                 error = true;
+                clearTask3();
             }
         }
         else{
@@ -946,6 +954,7 @@ public class Controller{
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Bottom Rank and Top Rank");
                 error = true;
+                clearTask3();
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -954,6 +963,7 @@ public class Controller{
                 alert.showAndWait();
                 errorT3.setText("Please enter a positive integer for Top Rank");
                 error = true;
+                clearTask3();
             }
         }
 
@@ -967,11 +977,13 @@ public class Controller{
                     alert.showAndWait();
                     errorT3.setText("Please enter positive integer values for Bottom Rank and Top Rank");
                     error = true;
+                    clearTask3();
                 } else {
                     alert.setContentText("Please enter positive integer values for Top Rank");
                     alert.showAndWait();
                     errorT3.setText("Please enter positive integer values for Top Rank");
                     error = true;
+                    clearTask3();
                 }
             } else {
                 if (Integer.parseInt(bottom_input) <= 0) {
@@ -981,6 +993,7 @@ public class Controller{
                     alert.showAndWait();
                     errorT3.setText("Please enter positive integer values for Bottom Rank");
                     error = true;
+                    clearTask3();
                 }
             }
         }
@@ -997,11 +1010,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank, Bottom Rank, Type and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Top Rank, Bottom Rank and Type");
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank, Bottom Rank and Type");
                         error = true;
+                        clearTask3();
                     }
                 } else {
                     if (region == null) {
@@ -1009,11 +1024,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank, Bottom Rank and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Top Rank and Bottom Rank");
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank and Bottom Rank");
                         error = true;
+                        clearTask3();
                     }
 
                 }
@@ -1024,11 +1041,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank, Type and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Top Rank and Type");
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank and Type");
                         error = true;
+                        clearTask3();
                     }
                 } else {
                     if (region == null) {
@@ -1036,11 +1055,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Top Rank");
                         alert.showAndWait();
                         errorT3.setText("Please Select Top Rank");
                         error = true;
+                        clearTask3();
                     }
 
                 }
@@ -1055,11 +1076,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Bottom Rank, Type and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Bottom Rank and Type");
                         alert.showAndWait();
                         errorT3.setText("Please Select Bottom Rank and Type");
                         error = true;
+                        clearTask3();
                     }
                 } else {
                     if (region == null) {
@@ -1067,11 +1090,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Bottom Rank and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Bottom Rank");
                         alert.showAndWait();
                         errorT3.setText("Please Select Bottom Rank");
                         error = true;
+                        clearTask3();
                     }
 
                 }
@@ -1084,11 +1109,13 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Type and Region");
                         error = true;
+                        clearTask3();
                     } else {
                         alert.setContentText("Please Select Type");
                         alert.showAndWait();
                         errorT3.setText("Please Select Type");
                         error = true;
+                        clearTask3();
                     }
                 } else {
                     if (region == null) {
@@ -1098,6 +1125,7 @@ public class Controller{
                         alert.showAndWait();
                         errorT3.setText("Please Select Region");
                         error = true;
+                        clearTask3();
                     }
                 }
             }
@@ -1114,6 +1142,7 @@ public class Controller{
                 alert.showAndWait();
                 errorT3.setText("Please set Top rank's value to be lower than bottom rank's value");
                 error = true;
+                clearTask3();
             }
         }
 
