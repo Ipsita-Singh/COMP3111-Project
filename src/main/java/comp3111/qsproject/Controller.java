@@ -234,12 +234,12 @@ public class Controller{
         t3RecentRank.setCellValueFactory(new PropertyValueFactory<RecommendItem, String>("recentRank"));
     }
 
+    /**
+     * Resets all the data such as the year and properties selected and clears any charts or tables displayed
+     * @author Malav Daftary
+     */
     @FXML
     public void T1_onClickClear() {
-        /*
-            Your Code Here.
-            Reset the Page Task1. (including the choice box, labels and charts)
-         */
 
         t1DataTable.getItems().clear();
         t1YearChoiceBox.setValue("2017");
@@ -253,15 +253,15 @@ public class Controller{
         t1PieChart.setTitle(null);
 
 
-
     }
 
-    public void T1_internalupdate() {
-        /*
-            Your Code Here.
-            Reset the Page Task1. (including the choice box, labels and charts)
-         */
+    /**
+     * Resets all data except any inputs by the user like the year or property selected
+     * Used in T1_onClickSearch as an internal function to clear previous data
+     * @author Malav Daftary
+     */
 
+    public void T1_internalupdate() {
         t1DataTable.getItems().clear();
         t1BarChart.getData().clear();
         t1PieChart.getData().clear();
@@ -272,21 +272,18 @@ public class Controller{
 
     }
 
+    /**
+     * Fetches the selected year and properties by the user
+     * Calls T1_internalupdate to clear existing table and chart data before adding new data
+     * Creates an Analyzer which is used to obtain the table, pie chart and bar chart data
+     * Sets up the formatting for the table, pie chart and bar chart
+     * Displays table, pie chart and bar chart using obtained data
+     * No error handling is required since any of the user input can never be null or invalid
+     * @author Malav Daftary
+     */
 
     @FXML
     public void T1_onClickSearch() {
-        /*
-            Your Code Here.
-            When click search on Task1:
-                1. Fetch the year from the choice box.
-                2. Clear previous data.
-                3. Make an Analyser.
-                4. Update the Table view, which shows Information about universities.
-                5. Update the Pie Chart, which shows the sum score of selected property (t1PieChartChoiceBox).
-                6. Update the Bar Chart, which shows the average score of selected property (t1BarChartChoiceBox).
-            Please notice that we need listeners for monitoring the changes of choice box in pie chart and bar chart.
-         */
-
         //Clearing previous data
         T1_internalupdate();
         //Fetching year from choice box
@@ -313,9 +310,6 @@ public class Controller{
 
         //setting the direction to arrange the data
         t1PieChart.setClockwise(true);
-
-        //Setting the length of the label line
-        //t1PieChart.setLabelLineLength(50);
 
         //Setting the labels of the pie chart visible
         t1PieChart.setLabelsVisible(true);
