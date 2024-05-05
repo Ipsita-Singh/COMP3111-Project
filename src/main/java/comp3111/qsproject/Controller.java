@@ -900,6 +900,7 @@ public class Controller{
             }
     }
 
+    
     /**
      * Retrieves all the user inputs and checks whether all the inputs or not. If not, relevant errors are raised.
      * If all the conditions are met then an analyser is created.
