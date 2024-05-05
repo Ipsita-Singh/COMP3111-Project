@@ -8,37 +8,42 @@ import javafx.scene.chart.XYChart;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 public class T1Analysis {
     public ObservableList<QSItem> tableList = FXCollections.observableArrayList();
+
+    /**
+     * Constructor for T1Analysis Class
+     * Filters the QSList items based on the given year by the user
+     * Assigns this filtered list to an ObservableList tableList which is used to set the table view
+     * @author Malav Daftary
+     * @param year The year selected by the user which is used to filter QSList
+     */
     T1Analysis (String year) {
-        /*
-            Your Code Here.
-            Collect the QSItem with corresponding years into tableList.
-            Use static properties in QSList here.
-            Hint: QSList.list is a static property.
-         */
         List <QSItem> tList = QSList.list.stream().filter(qsItem -> qsItem.getYear().equals(year)).collect(Collectors.toList());
         tableList = FXCollections.observableArrayList(tList);
     }
 
+    /**
+     * @return The filtered QSList items to be set as the table
+     */
     ObservableList<QSItem> getTableList() {
         return tableList;
     }
 
+    /**
+     * Traverses through tableList and retrieves the score according to the property value chosen by the user
+     * If the score is empty then that university is ignored in the calculation
+     * The score for each university is summed according to the property value selected and added to a hash map
+     * The hash map is then traversed over, and the values are used to create the final pie chart data values which are sorted
+     * For the property "country", only the highest 8 will be calculated individually and the rest will be categorised as others
+     * This is done to better the formatting and the interface of the pie chart
+     * @author Malav Daftary
+     * @param searchName The property selected by the user which is used as the filter for the pie chart data
+     * @return An ObservableList of pie chart data points to be used for creating the chart
+     */
     ObservableList<PieChart.Data> getPieChartData(String searchName) {
         ObservableList<PieChart.Data> pieChartData= FXCollections.observableArrayList();
-        /*
-            Your Code Here.
-            Return the Pie Chart Data.
-            Pie Chart shows the SUM of the score.
-            For example, when the user chooses "size", which means the searchName will be "size"
-            And Return an ObservableList with PieChart.Data
-            [
-                key: "L", value: the Sum score of the Large size universities,
-                key: "M", value: the Sum score of the Middle size universities,
-                key: "S", value: the Sum score of the Small size universities,
-            ]
-         */
         Map<String, Double> scoreMap = new HashMap<>();
 
         // Iterate over the tableList
@@ -55,42 +60,44 @@ public class T1Analysis {
 
         // Convert the map to PieChart.Data and add to pieChartData
         for (Map.Entry<String, Double> entry : scoreMap.entrySet()) {
-            pieChartData.add(new PieChart.Data(entry.getKey() + ": " + entry.getValue().intValue(), entry.getValue().intValue()));
+            pieChartData.add(new PieChart.Data(entry.getKey() + ": " + Math.round(entry.getValue()), Math.round(entry.getValue())));
         }
 
         // Sort the list based on the pie chart data values
         Collections.sort(pieChartData, (o1, o2) -> Double.compare(o2.getPieValue(), o1.getPieValue()));
 
-        if (pieChartData.size() > 10){
+
+        if (pieChartData.size() > 9){
             int otherScore = 0;
-            for (int i = 9; i < pieChartData.size(); i++){
+            for (int i = 8; i < pieChartData.size(); i++){
                 otherScore += pieChartData.get(i).getPieValue();
             }
 
-            pieChartData.remove(9, pieChartData.size());
+            pieChartData.remove(8, pieChartData.size());
 
             pieChartData.add(new PieChart.Data("Others: " + otherScore, otherScore));
 
         }
 
-
         return pieChartData;
     }
 
+    /**
+     * Traverses through tableList and retrieves the score according to the property value chosen by the user
+     * If the score is empty then that university is ignored in the calculation
+     * A hash map "countMap" is used to keep track of the number of universities for the property values
+     * The score for each university is averaged according to the property value selected and the count value from the countMap
+     * The averaged scores are stored in the hash map "scoreMap"
+     * The hash map is then traversed over, and the values are used to create the final bar chart data values which are sorted
+     * For the property "country", only the highest 19 will be calculated individually and the rest will be categorised as others
+     * This is done to better the formatting and the interface of the bar chart
+     * @author Malav Daftary
+     * @param searchName The property selected by the user which is used as the filter for the bar chart data
+     * @return A series of bar chart data points to be used for creating the chart
+     */
     XYChart.Series<String, Double> getBarChartData(String searchName) {
         XYChart.Series<String, Double> barData= new XYChart.Series<>();
-        /*
-            Your Code Here.
-            Return the Bar Chart Data.
-            Bar Chart shows the Avg. of the score.
-            For example, when the user chooses "size", which means the searchName will be "size"
-            And Return an XYChart.Series with XYChart.Data
-            [
-                key: "L", value: the Average score of the Large size universities,
-                key: "M", value: the Average score of the Middle size universities,
-                key: "S", value: the Average score of the Small size universities,
-            ]
-         */
+
         Map<String, Double> scoreMap = new HashMap<>();
         Map<String, Integer> countMap = new HashMap<>();
 
@@ -117,15 +124,15 @@ public class T1Analysis {
         Collections.sort(barData.getData(), (o1, o2) -> Double.compare(o2.getYValue().doubleValue(), o1.getYValue().doubleValue()));
 
 
-        if (barData.getData().size() > 10){
+        if (barData.getData().size() > 20){
             double otherScore = 0;
             int count = 0;
-            for (int i = 9; i < barData.getData().size(); i++){
+            for (int i = 19; i < barData.getData().size(); i++){
                 int tempcount = countMap.get(barData.getData().get(i).getXValue());
                 otherScore = ((otherScore * count + barData.getData().get(i).getYValue() * tempcount) / (tempcount + count));
             }
 
-            barData.getData().remove(9, barData.getData().size());
+            barData.getData().remove(19, barData.getData().size());
 
             barData.getData().add(new XYChart.Data<>("Others", ( (double)otherScore)));
 
